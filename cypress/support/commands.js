@@ -25,9 +25,18 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 // Sign into service via UI
-Cypress.Commands.add('signIntoWebfiling', ()=> {
+Cypress.Commands.add('signIntoWebfiling', () => {
     cy.visit(Cypress.env('baseUrl'))
+    cy.injectAxe();
+
+    cy.checkA11y(Cypress.env('tags'))
+
     cy.get('#email').type(Cypress.env('user_email'))
     cy.get('#seccode').type(Cypress.env('user_password'))
     cy.get('.button').click()
+})
+
+Cypress.Commands.add('accessibilityCheck', () => {
+    cy.injectAxe();
+    cy.checkA11y(Cypress.env('tags'));
 })
