@@ -40,3 +40,19 @@ Cypress.Commands.add('accessibilityCheck', () => {
     cy.injectAxe();
     cy.checkA11y(Cypress.env('tags'));
 })
+
+Cypress.Commands.add('selectTodaysDate', () => {
+    var day = Cypress.moment().format('D');
+    const month = Cypress.moment().format('MMMM');
+    const year = Cypress.moment().format('YYYY');
+
+    cy.log(Cypress.moment().format('D MMMM YYYY'))
+
+    cy.get('.selector-day').select(day);
+    cy.get('.selector-month').select(month);
+    cy.get('.selector-year').select(year);
+})
+
+Cypress.Commands.add('checkSubmitIsDisabled', () => {
+    cy.get('.submit').should('have.attr', 'disabled');
+})

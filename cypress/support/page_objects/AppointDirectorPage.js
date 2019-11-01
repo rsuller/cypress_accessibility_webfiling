@@ -44,7 +44,7 @@ class AppointDirectorPage {
     }
 
     selectTodayAsAppointmentDate() {
-        const day = Cypress.moment().format('DD');
+        const day = Cypress.moment().format('D');
         const month = Cypress.moment().format('MMMM');
         const year = Cypress.moment().format('YYYY');
 
