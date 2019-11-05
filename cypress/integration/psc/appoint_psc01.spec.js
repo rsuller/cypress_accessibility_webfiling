@@ -41,10 +41,10 @@ describe('Appoint a PSC', () => {
         cy.accessibilityCheck();
         appointPSCPage.selectDateOfBirth('1', 'January', '1980');
 
-       // cy.accessibilityCheck();
+        cy.accessibilityCheck();
         appointPSCPage.enterNationality('British');
 
-       // cy.accessibilityCheck();
+        cy.accessibilityCheck();
         appointPSCPage.selectROasCorrespondenceAddress();
 
         cy.accessibilityCheck();
