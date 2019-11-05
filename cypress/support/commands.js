@@ -42,7 +42,7 @@ Cypress.Commands.add('accessibilityCheck', () => {
 })
 
 Cypress.Commands.add('selectTodaysDate', () => {
-    var day = Cypress.moment().format('D');
+    const day = Cypress.moment().format('D');
     const month = Cypress.moment().format('MMMM');
     const year = Cypress.moment().format('YYYY');
 
