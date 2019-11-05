@@ -1,20 +1,7 @@
-import CompanySignInPage from '../../support/page_objects/CompanySignInPage'
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
 import PreFilingPSC01Page from '../../support/page_objects/PreFilingPSC01Page';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
-
-import { company_number, auth_code } from '../../fixtures/company.json';
-
-beforeEach(() => {
-    // Sign into Webfiling
-    cy.signIntoWebfiling();
-
-    // Sign into company to file for
-    const companySignIn = new CompanySignInPage();
-    cy.accessibilityCheck();
-    companySignIn.enterCompanyDetails(company_number, auth_code);
-})
 
 describe('Appoint a PSC', () => {
     it('File successful PSC01', () => {

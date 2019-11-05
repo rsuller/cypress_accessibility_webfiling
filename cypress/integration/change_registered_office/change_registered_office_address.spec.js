@@ -1,19 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
-import CompanySignInPage from '../../support/page_objects/CompanySignInPage'
 import ChangeRegisteredOfficePage from '../../support/page_objects/ChangeRegisteredOfficePage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
-
-import { company_number, auth_code } from '../../fixtures/company.json';
-
-beforeEach(() => {
-    // Sign into Webfiling
-    cy.signIntoWebfiling();
-
-    // Sign into company to file for
-    const companySignIn = new CompanySignInPage();
-    cy.accessibilityCheck();
-    companySignIn.enterCompanyDetails(company_number, auth_code);
-})
 
 describe('Change of registered office address', () => {
     it('File successful AD01', () => {
