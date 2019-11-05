@@ -25,9 +25,34 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 // Sign into service via UI
-Cypress.Commands.add('signIntoWebfiling', ()=> {
+Cypress.Commands.add('signIntoWebfiling', () => {
     cy.visit(Cypress.env('baseUrl'))
+    cy.injectAxe();
+
+    cy.checkA11y(Cypress.env('tags'))
+
     cy.get('#email').type(Cypress.env('user_email'))
     cy.get('#seccode').type(Cypress.env('user_password'))
     cy.get('.button').click()
+})
+
+Cypress.Commands.add('accessibilityCheck', () => {
+    cy.injectAxe();
+    cy.checkA11y(Cypress.env('tags'));
+})
+
+Cypress.Commands.add('selectTodaysDate', () => {
+    const day = Cypress.moment().format('D');
+    const month = Cypress.moment().format('MMMM');
+    const year = Cypress.moment().format('YYYY');
+
+    cy.log(Cypress.moment().format('D MMMM YYYY'))
+
+    cy.get('.selector-day').select(day);
+    cy.get('.selector-month').select(month);
+    cy.get('.selector-year').select(year);
+})
+
+Cypress.Commands.add('checkSubmitIsDisabled', () => {
+    cy.get('.submit').should('have.attr', 'disabled');
 })
