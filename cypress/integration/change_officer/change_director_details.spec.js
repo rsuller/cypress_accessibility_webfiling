@@ -27,7 +27,11 @@ describe('Change director details - CH01', ()=> {
         cy.accessibilityCheck();
 
         // Apply today's date for date of change
-        cy.selectTodaysDate();
+        const dayElement = ".selector-day";
+        const monthElement = ".selector-month";
+        const yearElement = ".selector-year";
+
+        cy.selectTodaysDate(dayElement, monthElement, yearElement);
 
         // As no change has been made ensure the submission button is disabled
         cy.checkSubmitIsDisabled();

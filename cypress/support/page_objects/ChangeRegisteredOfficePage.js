@@ -1,4 +1,4 @@
-import AddressPage from "../Address";
+import AddressPage from "./generic/Address";
 
 class ChangeRegisteredOfficePage extends AddressPage {
 
