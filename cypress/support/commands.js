@@ -41,16 +41,16 @@ Cypress.Commands.add('accessibilityCheck', () => {
     cy.checkA11y(Cypress.env('tags'));
 })
 
-Cypress.Commands.add('selectTodaysDate', () => {
+Cypress.Commands.add('selectTodaysDate', (dayElement, MonthElement, yearElement) => {
     const day = Cypress.moment().format('D');
     const month = Cypress.moment().format('MMMM');
     const year = Cypress.moment().format('YYYY');
 
     cy.log(Cypress.moment().format('D MMMM YYYY'))
 
-    cy.get('.selector-day').select(day);
-    cy.get('.selector-month').select(month);
-    cy.get('.selector-year').select(year);
+    cy.get(dayElement).select(day);
+    cy.get(MonthElement).select(month);
+    cy.get(yearElement).select(year);
 })
 
 Cypress.Commands.add('checkSubmitIsDisabled', () => {

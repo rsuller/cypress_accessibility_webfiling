@@ -15,7 +15,7 @@ describe('Change director details - CH01', ()=> {
 
         // Select officer by name
         cy.accessibilityCheck();
-        directorAndSecretaries.selectOfficerToEdit('Halibut Condition GUEST');
+        directorAndSecretaries.selectOfficerToEdit('Commission Flanker BAROMETERLIQUOR');
 
         // Check to ensure Tick and Cross are displayed
         const preFiling = new DirectorChangeDetailsPreFilingPage();
@@ -27,7 +27,11 @@ describe('Change director details - CH01', ()=> {
         cy.accessibilityCheck();
 
         // Apply today's date for date of change
-        cy.selectTodaysDate();
+        const dayElement = ".selector-day";
+        const monthElement = ".selector-month";
+        const yearElement = ".selector-year";
+
+        cy.selectTodaysDate(dayElement, monthElement, yearElement);
 
         // As no change has been made ensure the submission button is disabled
         cy.checkSubmitIsDisabled();
