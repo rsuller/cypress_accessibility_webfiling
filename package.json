@@ -24,7 +24,7 @@
   "homepage": "https://github.com/rsuller/cypress_accessibility_webfiling#readme",
   "devDependencies": {
     "axe-core": "^3.4.0",
-    "cypress": "^3.5.0",
+    "cypress": "^3.6.0",
     "cypress-axe": "^0.5.1"
   }
 }
