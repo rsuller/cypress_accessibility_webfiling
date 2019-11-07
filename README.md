@@ -19,6 +19,14 @@ Running tests via the command line will run in headless mode e.g.
 *When tests are executed via the command line a video of the run will be recorded in the **cypress** root folder e.g.*
 `C:\Users\user\cypress\videos\test_name.spec.js.mp4 `
 
+###### NOTE:
+Video recording will be set to `false` by default. If you require video recordings from the command line you can update this from the command line or simply amending the `video` value in cypress.json to `true`.
+It is also worth noting that you should specify the browser. As of cypress@3.6.0 you can record in chrome
+```
+--browser chrome
+```
+This is advisable as there have been issues using Electron.
+
 ### Accessibility
 This project relies upon the following package [cypress-axe](https://www.npmjs.com/package/cypress-axe)
 `cypress-axe` requires only 3 commands:
