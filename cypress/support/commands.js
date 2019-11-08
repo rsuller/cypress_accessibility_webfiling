@@ -26,7 +26,7 @@
 
 // Sign into service via UI
 Cypress.Commands.add('signIntoWebfiling', () => {
-    cy.visit(Cypress.env('baseUrl'))
+    cy.visit('/')
     cy.injectAxe();
 
     cy.checkA11y(Cypress.env('tags'))
