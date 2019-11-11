@@ -21,7 +21,7 @@ describe('Appoint an individual PSC', () => {
         preFilingPage.appointPsc();
 
         // Check correct page is loaded
-        cy.get('h1').should('have.text', 'Notification of a person with significant control (PSC)')
+        cy.checkPageHeadingIs('Notification of a person with significant control (PSC)');
         cy.accessibilityCheck();
 
         appointPSCPage.enterName("Mr", "Test", "Automation", "Ninja");
@@ -51,7 +51,7 @@ describe('Appoint an individual PSC', () => {
         appointPSCPage.selectTodayAsRegisterEntryDate();
 
         // Check disclaimer is correct
-        cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
+        cy.checkDisclaimer();
     })
 
 })

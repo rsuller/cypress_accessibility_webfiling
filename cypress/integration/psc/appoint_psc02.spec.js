@@ -23,7 +23,7 @@ describe('Appoint a corporate PSC', () => {
         preFilingPage.appointPsc();
 
         // Check correct page is loaded
-        cy.get('h1').should('have.text', 'Notification of a relevant legal entity with significant control (PSC)')
+        cy.checkPageHeadingIs('Notification of a relevant legal entity with significant control (PSC)');
         cy.accessibilityCheck();
 
         cy.accessibilityCheck();
@@ -46,7 +46,7 @@ describe('Appoint a corporate PSC', () => {
         appointPSC02Page.selectTodayAsRegisterEntryDate();
 
         // Check disclaimer is correct
-        cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
+        cy.checkDisclaimer();
 
     })
 

@@ -15,7 +15,7 @@ describe('Appoint a Director', () => {
         preFilingPage.appointDirector();
 
         // Check correct page is loaded
-        cy.get('h1').should('have.text', 'Appointment of a director')
+        cy.checkPageHeadingIs('Appointment of a director');
         cy.accessibilityCheck();
 
         appointDirectorPage.enterName("Mr", "Test", "Automation", "Ninja");
@@ -45,7 +45,7 @@ describe('Appoint a Director', () => {
         appointDirectorPage.consentToAct();
 
         // Check disclaimer is correct
-        cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
+        cy.checkDisclaimer();
     })
 
 })

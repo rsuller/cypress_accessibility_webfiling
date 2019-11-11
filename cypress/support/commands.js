@@ -56,3 +56,12 @@ Cypress.Commands.add('selectTodaysDate', (dayElement, MonthElement, yearElement)
 Cypress.Commands.add('checkSubmitIsDisabled', () => {
     cy.get('.submit').should('have.attr', 'disabled');
 })
+
+Cypress.Commands.add('checkDisclaimer', () => {
+    cy.get('.disclaimer').should('contain.text', 
+    'Please ensure all the information above is correct before you proceed.');
+})
+
+Cypress.Commands.add('checkPageHeadingIs', (pageHeading) => {
+    cy.get('h1').should('have.text', pageHeading);
+})
