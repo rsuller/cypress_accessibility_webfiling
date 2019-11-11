@@ -13,7 +13,7 @@ describe('Change of registered office address', () => {
         companyOverview.selectLinkWithText('Change address');
 
         // Alter address - just change premise
-        changeRegisteredOffice.changeAddress('100', 'SW1P 1JP');
+        changeRegisteredOffice.lookUpROAddress('100', 'SW1P 1JP');
         cy.accessibilityCheck();
 
         // Check address is correct

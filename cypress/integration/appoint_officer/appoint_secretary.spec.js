@@ -15,7 +15,7 @@ describe('Appoint a secretary', () => {
         preFilingPage.appointSecretary();
 
         // Check correct page is loaded
-        cy.get('h1').should('have.text', 'Appointment of a secretary')
+        cy.checkPageHeadingIs('Appointment of a secretary');
         cy.accessibilityCheck();
 
         // Enter secretary details
@@ -31,7 +31,7 @@ describe('Appoint a secretary', () => {
         secretaryDetailsPage.consentToAct();
 
         // Check disclaimer is correct
-        cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
+        cy.checkDisclaimer();
 
     })
 })
