@@ -1,7 +1,7 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
-import AppointPSC02Page from '../../support/page_objects/AppointPSC02Page';
+import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import AddressPage from '../../support/page_objects/generic/Address';
 
 describe('Appoint a corporate PSC', () => {
@@ -9,7 +9,7 @@ describe('Appoint a corporate PSC', () => {
 
         const companyOverview = new CompanyOverviewPage();
         const preFilingPage = new PreFilingPSCPage();
-        const appointPSC02Page = new AppointPSC02Page();
+        const appointPSC02Page = new PscAppointment();
         const pscLandingPage = new PSCLandingPage();
         const addressPage = new AddressPage();
 

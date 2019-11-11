@@ -8,6 +8,10 @@ class PSCLandingPage {
         cy.get('#addCorporate').click();
     }
 
+    appointPsc03() {
+        cy.get('#addLegalPerson').click();
+    }
+
 }
 
 export default PSCLandingPage
