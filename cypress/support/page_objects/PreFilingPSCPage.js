@@ -1,4 +1,4 @@
-class PreFilingPSC01Page {
+class PreFilingPSCPage {
 
     appointPsc() {
         cy.get('.button').click();
@@ -6,4 +6,4 @@ class PreFilingPSC01Page {
 
 }
 
-export default PreFilingPSC01Page
+export default PreFilingPSCPage

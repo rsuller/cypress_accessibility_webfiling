@@ -1,13 +1,13 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
-import PreFilingPSC01Page from '../../support/page_objects/PreFilingPSC01Page';
+import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 
-describe('Appoint a PSC', () => {
+describe('Appoint an individual PSC', () => {
     it('File successful PSC01', () => {
-        // Go to change registered office address
+
         const companyOverview = new CompanyOverviewPage();
-        const preFilingPage = new PreFilingPSC01Page();
+        const preFilingPage = new PreFilingPSCPage();
         const appointPSCPage = new AppointPSC01Page();
         const pscLandingPage = new PSCLandingPage();
 
@@ -17,6 +17,7 @@ describe('Appoint a PSC', () => {
         cy.accessibilityCheck();
         pscLandingPage.appointPsc01();
 
+        cy.accessibilityCheck();
         preFilingPage.appointPsc();
 
         // Check correct page is loaded
@@ -24,7 +25,7 @@ describe('Appoint a PSC', () => {
         cy.accessibilityCheck();
 
         appointPSCPage.enterName("Mr", "Test", "Automation", "Ninja");
-        // Repeat calls for accessibility checks
+        
         cy.accessibilityCheck();
         appointPSCPage.selectDateOfBirth('1', 'January', '1980');
 
@@ -48,7 +49,6 @@ describe('Appoint a PSC', () => {
 
         cy.accessibilityCheck();
         appointPSCPage.selectTodayAsRegisterEntryDate();
-
 
         // Check disclaimer is correct
         cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
