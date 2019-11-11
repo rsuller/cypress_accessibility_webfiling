@@ -1,10 +1,38 @@
 class AddressPage {
 
-    changeAddress(propertyNumber, postcode) {
+    lookUpROAddress(propertyNumber, postcode) {
         cy.get('#ro-address-premise').type(propertyNumber)
         cy.get('#ro-address-postcode').type(postcode)
         // Lookup address
         cy.get('#ro-address-postcode-Lookup').click()
+    }
+
+    lookUpHomeAddress(propertyNumber, postcode) {
+        const propElement = '#ro-address-premise';
+        const postcodeElement = '#ro-address-postcode';
+        const buttonElement = '#ro-address-postcode-Lookup';
+        this.lookUpAddress(propertyNumber, postcode,
+            propElement, postcodeElement, buttonElement);
+        
+    }
+
+    lookUpServiceAddress(propertyNumber, postcode) {
+        const propElement = '#service-address-premise';
+        const postcodeElement = '#service-address-postcode';
+        const buttonElement = '#service-address-postcode-Lookup';
+        const continueElement = '#service-address-container-continue';
+        this.lookUpAddress(propertyNumber, postcode,
+            propElement, postcodeElement, buttonElement, continueElement);
+        
+    }
+
+    lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton, continueButton) {
+        cy.get(propElement).type(propertyNumber)
+        cy.get(postcodeElement).type(postcode)
+        // Lookup address
+        cy.get(lookupButton).wait(500).click();
+        cy.get(continueButton).wait(2000).click();
+
     }
 
     checkAddressByStreetName(streetName) {
