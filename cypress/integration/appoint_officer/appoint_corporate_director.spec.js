@@ -12,7 +12,7 @@ describe('Appoint a Corporate Director', () => {
             .selectLinkWithText('Appointment of corporate director - AP02');
 
         // Check correct page is loaded
-        cy.get('h1').should('have.text', 'Appointment of a corporate director');
+        cy.checkPageHeadingIs('Appointment of a corporate director');
 
         // Repeat calls for accessibility checks
         cy.accessibilityCheck();
@@ -31,7 +31,7 @@ describe('Appoint a Corporate Director', () => {
         appointCorporateDirectorPage.consentToAct();
 
         // Check disclaimer is correct
-        cy.get('.disclaimer').should('contain.text', 'Please ensure all the information above is correct before you proceed.')
+        cy.checkDisclaimer();
     })
 
 })
