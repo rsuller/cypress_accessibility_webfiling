@@ -58,10 +58,16 @@ Cypress.Commands.add('checkSubmitIsDisabled', () => {
 })
 
 Cypress.Commands.add('checkDisclaimer', () => {
-    cy.get('.disclaimer').should('contain.text', 
-    'Please ensure all the information above is correct before you proceed.');
+    cy.get('.disclaimer').should('contain.text',
+        'Please ensure all the information above is correct before you proceed.');
 })
 
 Cypress.Commands.add('checkPageHeadingIs', (pageHeading) => {
     cy.get('h1').should('have.text', pageHeading);
+})
+
+Cypress.Commands.add('checkSubmitButtonAccessibility', () => {
+    cy.get("input[type='submit']")
+        .invoke('attr', 'class', 'disabled');
+    cy.accessibilityCheck();
 })
