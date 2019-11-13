@@ -68,7 +68,7 @@ Cypress.Commands.add('checkPageHeadingIs', (pageHeading) => {
 
 // This is to check the contrast of the submit button prior to submitting form
 Cypress.Commands.add('checkSubmitButtonAccessibility', () => {
-    const element = cy.get("input[value='Submit appointment']");
+    const element = cy.get("input[value^='Submit']");
     element.invoke('attr', 'class', 'disabled');
     cy.accessibilityCheck();
     // If it passes click it
