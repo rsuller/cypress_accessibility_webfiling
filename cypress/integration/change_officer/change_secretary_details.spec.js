@@ -1,9 +1,9 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndSecretariesPage'
-import DirectorChangeDetailsPreFilingPage from '../../support/page_objects/DirectorChangeDetailsPreFilingPage'
+import SecretaryChangeDetailsPreFilingPage from '../../support/page_objects/SecretaryChangeDetailsPreFilingPage'
 
-describe('Change director details - CH01', ()=> {
+describe('Change secretary details - CH03', ()=> {
     it('Make No change', ()=> {
         const companyOverview = new CompanyOverviewPage();
         const allForms = new AllFormsPage();
@@ -11,19 +11,19 @@ describe('Change director details - CH01', ()=> {
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectDirectorAndSecretaries()
-        .selectCH01();
+        .selectCH03();
 
         // Select officer by name
         cy.accessibilityCheck();
-        directorAndSecretaries.selectOfficerToEdit('Commission Flanker BAROMETERLIQUOR');
+        directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
 
         // Check to ensure Tick and Cross are displayed
-        const preFiling = new DirectorChangeDetailsPreFilingPage();
+        const preFiling = new SecretaryChangeDetailsPreFilingPage();
         preFiling.checkPageIsDisplayedCorrectly();
         cy.accessibilityCheck();
 
         // Make a change to the selected officer
-        preFiling.changeDirectorDetails();
+        preFiling.changeSecretaryDetails();
         cy.accessibilityCheck();
 
         // Apply today's date for date of change
