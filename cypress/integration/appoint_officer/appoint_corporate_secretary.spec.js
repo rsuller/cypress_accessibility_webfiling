@@ -2,7 +2,7 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import AppointCorporateSecretaryPage from '../../support/page_objects/AppointCorporateSecretaryPage.js';
 
 describe('Appoint a Corporate Secretary', () => {
-    it('File successful AP03', () => {
+    it('File successful AP04', () => {
         // Go to change registered office address
         const companyOverview = new CompanyOverviewPage();
         const appointCorporateSecretaryPage = new AppointCorporateSecretaryPage();
