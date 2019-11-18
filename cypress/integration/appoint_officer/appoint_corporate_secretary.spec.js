@@ -25,7 +25,7 @@ describe('Appoint a Corporate Secretary', () => {
         appointCorporateSecretaryPage.enterCompanyAddress('10', 'CF14 3UZ');
 
         cy.accessibilityCheck();
-        appointCorporateSecretaryPage.selectEEAStatus(true);
+        appointCorporateSecretaryPage.selectEEAStatus(false);
 
         cy.accessibilityCheck();
         appointCorporateSecretaryPage.consentToAct();

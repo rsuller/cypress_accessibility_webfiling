@@ -35,7 +35,8 @@ class CorporateOfficerAppointment {
             cy.get('#NONEEAInd-label').click();
             cy.accessibilityCheck();
             // Complete Non EEA details
-            // TODO
+            cy.get('#LawGoverned').type('Law');
+            cy.get('#LegalForm').type('Legal');
         }
         cy.get('#eea-container-continue').click();
     }
