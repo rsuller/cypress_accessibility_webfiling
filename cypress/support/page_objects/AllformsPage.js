@@ -12,6 +12,10 @@ class AllFormsPage {
     selectCH01() {
         cy.contains('Change of director\'s details - CH01').click();
     }
+
+    selectCH03() {
+        cy.contains('Change of secretary\'s details - CH03').click();
+    }
 }
 
 export default AllFormsPage

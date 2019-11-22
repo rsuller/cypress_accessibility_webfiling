@@ -1,11 +1,8 @@
-class DirectorChangeDetailsPreFilingPage {
+import PreFilingPage from "./generic/PreFilingPage";
 
-    checkPageIsDisplayedCorrectly() {
-        cy.get('.tick').should('not.be.hidden');
-        cy.get('.cross').should('not.be.hidden');
-    }
+class DirectorChangeDetailsPreFilingPage extends PreFilingPage {
 
-    changeExistingOfficerDetails() {
+    changeDirectorDetails() {
         cy.get('#ch01-prescreen-start').click();
     }
 

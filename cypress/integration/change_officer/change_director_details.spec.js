@@ -23,7 +23,7 @@ describe('Change director details - CH01', ()=> {
         cy.accessibilityCheck();
 
         // Make a change to the selected officer
-        preFiling.changeExistingOfficerDetails();
+        preFiling.changeDirectorDetails();
         cy.accessibilityCheck();
 
         // Apply today's date for date of change
