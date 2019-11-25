@@ -37,6 +37,16 @@ class PscAppointment extends OfficerAppointment {
         cy.get('#register-entry-date-container-continue').click();
     }
 
+    // Click company overview on the confirmation of submission page
+    clickCompanyOverview() {
+        cy.get(':nth-child(5) > .headerClick').click();
+    }
+
+    selectPscToEdit(pscName) {
+        // This will select the Edit link of the named psc
+        this.selectOfficer('tbody  tr td:nth-child(3)  a', pscName);
+    }
+
 }
 
 export default PscAppointment
