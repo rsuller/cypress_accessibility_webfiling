@@ -13,6 +13,7 @@ describe('Change of person with significant control (PSC) details', () => {
         const allForms = new AllFormsPage();
         const psc04Page = new ChangeIndividualPscPage();
 
+beforeEach(function () {
         // Go to PSC01
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc01();
