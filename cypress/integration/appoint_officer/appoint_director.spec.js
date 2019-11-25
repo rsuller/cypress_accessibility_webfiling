@@ -2,22 +2,26 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import PreFilingAP01Page from '../../support/page_objects/PreFilingAP01Page';
 import AppointDirectorPage from '../../support/page_objects/AppointDirectorPage'
 
+// Constants
+const companyOverview = new CompanyOverviewPage();
+const preFilingPage = new PreFilingAP01Page();
+const appointDirectorPage = new AppointDirectorPage();
+
+beforeEach('Go to AP01 form', () => {
+    // Go to change registered office address
+    cy.accessibilityCheck();
+    companyOverview.selectLinkWithText('Appoint a director');
+
+    preFilingPage.appointDirector();
+
+    // Check correct page is loaded
+    cy.checkPageHeadingIs('Appointment of a director');
+    cy.accessibilityCheck();
+})
+
 describe('Appoint a Director', () => {
     it('File successful AP01', () => {
-        // Go to change registered office address
-        const companyOverview = new CompanyOverviewPage();
-        const preFilingPage = new PreFilingAP01Page();
-        const appointDirectorPage = new AppointDirectorPage();
-
-        cy.accessibilityCheck();
-        companyOverview.selectLinkWithText('Appoint a director');
-
-        preFilingPage.appointDirector();
-
-        // Check correct page is loaded
-        cy.checkPageHeadingIs('Appointment of a director');
-        cy.accessibilityCheck();
-
+        // Enter details
         appointDirectorPage.enterName("Mr", "Test", "Automation", "Ninja");
         // Repeat calls for accessibility checks
         cy.accessibilityCheck();
@@ -46,6 +50,31 @@ describe('Appoint a Director', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+    })
+
+    it.only('Error validation - AP01', () => {
+        appointDirectorPage.expandAll();
+
+        // Open Addres sections
+        appointDirectorPage.expandCorrespondenceDetails();
+        appointDirectorPage.expandHomeAddressDetails();
+
+        // Include invalid entry for fields that are not deemed mandatory
+        appointDirectorPage.invalidEntryForNameFields()
+        .enterInvalidCharacterForCorrespondenceAddress()
+        .enterInvalidCharacterForHomeAddress();
+
+        // Submit form
+        appointDirectorPage.submitForm();
+
+        // Accessibility check - collapsed sections
+        cy.accessibilityCheck();
+
+        // Expand All once more
+        appointDirectorPage.expandAll();
+
+        // Accessibility check
+        cy.accessibilityCheck();
     })
 
 })
