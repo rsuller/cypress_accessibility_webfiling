@@ -1,6 +1,6 @@
 import PscAppointment from "./generic/PscAppointment";
 
-class PscStatmentPage extends PscAppointment  {
+class PscStatmentPage extends PscAppointment {
 
     selectReason() {
         cy.get('#reason-no-details-label').click();
@@ -27,9 +27,9 @@ class PscStatmentPage extends PscAppointment  {
         const monthElement = '#month-select-1';
         const yearElement = '#year-select-1';
         cy.selectTodaysDate(dayElement, monthElement, yearElement);
-     
+
     }
-    
+
 }
 
 export default PscStatmentPage
