@@ -33,7 +33,7 @@ describe('Change of person with significant control (PSC) details', () => {
 
     })
 
-        it('File successful PSC04', () => {
+    it('File successful PSC04', () => {
         // Go to PSC04
         appointPSC01Page.clickCompanyOverview();
         companyOverview.selectAllForms();
