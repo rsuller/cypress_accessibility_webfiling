@@ -11,8 +11,29 @@ const directorAndSecretaries = new DirectorAndSecretariesPage();
 const changeSecretaryDetails = new ChangeSecretaryDetailsPage();
 
 describe('Change secretary details - CH03', () => {
+    beforeEach(() => {
+        cy.log('Selecting Change secretary');
+        // Select form overview
+        companyOverview.selectAllForms();
+        allForms.selectDirectorAndSecretaries()
+            .selectCH03();
+
+        // Select officer by name
+        cy.accessibilityCheck();
+        directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
+
+        // Check to ensure Tick and Cross are displayed
+        const preFiling = new SecretaryChangeDetailsPreFilingPage();
+        preFiling.checkPageIsDisplayedCorrectly();
+        cy.accessibilityCheck();
+
+        // Select change officer
+        preFiling.changeSecretaryDetails();
+        cy.accessibilityCheck();
+
+    })
+
     it('Change Details', () => {
-        selectOfficer();
         // Change name
         changeSecretaryDetails.changeMiddleName('Public');
 
@@ -24,33 +45,12 @@ describe('Change secretary details - CH03', () => {
     })
 
     it('Make No change', () => {
-        selectOfficer();
         enterTodaysDate();
 
         // As no change has been made ensure the submission button is disabled
         cy.checkSubmitIsDisabled();
         cy.accessibilityCheck();
     })
-
-    function selectOfficer() {
-        // Select form overview
-        companyOverview.selectAllForms();
-        allForms.selectDirectorAndSecretaries()
-            .selectCH03();
-    
-        // Select officer by name
-        cy.accessibilityCheck();
-        directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
-    
-        // Check to ensure Tick and Cross are displayed
-        const preFiling = new SecretaryChangeDetailsPreFilingPage();
-        preFiling.checkPageIsDisplayedCorrectly();
-        cy.accessibilityCheck();
-    
-        // Select change officer
-        preFiling.changeSecretaryDetails();
-        cy.accessibilityCheck();
-    }
 
     function enterTodaysDate() {
         // Apply today's date for date of change
