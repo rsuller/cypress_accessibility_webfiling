@@ -12,6 +12,10 @@ class PSCLandingPage {
         cy.get('#addLegalPerson').click();
     }
 
+    addPscStatement() {
+        cy.get('#addStatement').click();
+    }
+
 }
 
 export default PSCLandingPage
