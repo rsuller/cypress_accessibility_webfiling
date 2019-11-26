@@ -10,28 +10,29 @@ const allForms = new AllFormsPage();
 const directorAndSecretaries = new DirectorAndSecretariesPage();
 const changeSecretaryDetails = new ChangeSecretaryDetailsPage();
 
-beforeEach('Select officer', () => {
-    // Select form overview
-    companyOverview.selectAllForms();
-    allForms.selectDirectorAndSecretaries()
-        .selectCH03();
-
-    // Select officer by name
-    cy.accessibilityCheck();
-    directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
-
-    // Check to ensure Tick and Cross are displayed
-    const preFiling = new SecretaryChangeDetailsPreFilingPage();
-    preFiling.checkPageIsDisplayedCorrectly();
-    cy.accessibilityCheck();
-
-    // Select change officer
-    preFiling.changeSecretaryDetails();
-    cy.accessibilityCheck();
-
-})
-
 describe('Change secretary details - CH03', () => {
+    beforeEach(() => {
+        cy.log('Selecting Change secretary');
+        // Select form overview
+        companyOverview.selectAllForms();
+        allForms.selectDirectorAndSecretaries()
+            .selectCH03();
+
+        // Select officer by name
+        cy.accessibilityCheck();
+        directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
+
+        // Check to ensure Tick and Cross are displayed
+        const preFiling = new SecretaryChangeDetailsPreFilingPage();
+        preFiling.checkPageIsDisplayedCorrectly();
+        cy.accessibilityCheck();
+
+        // Select change officer
+        preFiling.changeSecretaryDetails();
+        cy.accessibilityCheck();
+
+    })
+
     it('Change Details', () => {
         // Change name
         changeSecretaryDetails.changeMiddleName('Public');

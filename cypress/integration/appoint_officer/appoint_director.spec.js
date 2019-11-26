@@ -7,19 +7,19 @@ const companyOverview = new CompanyOverviewPage();
 const preFilingPage = new PreFilingAP01Page();
 const appointDirectorPage = new AppointDirectorPage();
 
-beforeEach('Go to AP01 form', () => {
-    // Go to change registered office address
-    cy.accessibilityCheck();
-    companyOverview.selectLinkWithText('Appoint a director');
-
-    preFilingPage.appointDirector();
-
-    // Check correct page is loaded
-    cy.checkPageHeadingIs('Appointment of a director');
-    cy.accessibilityCheck();
-})
-
 describe('Appoint a Director', () => {
+    beforeEach('Go to AP01 form', () => {
+        // Go to change registered office address
+        cy.accessibilityCheck();
+        companyOverview.selectLinkWithText('Appoint a director');
+    
+        preFilingPage.appointDirector();
+    
+        // Check correct page is loaded
+        cy.checkPageHeadingIs('Appointment of a director');
+        cy.accessibilityCheck();
+    })
+
     it('File successful AP01', () => {
         // Enter details
         appointDirectorPage.enterName("Mr", "Test", "Automation", "Ninja");
@@ -52,7 +52,7 @@ describe('Appoint a Director', () => {
         cy.checkDisclaimer();
     })
 
-    it.only('Error validation - AP01', () => {
+    it('Error validation - AP01', () => {
         appointDirectorPage.expandAll();
 
         // Open Addres sections

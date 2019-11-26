@@ -16,6 +16,22 @@ class AllFormsPage {
     selectCH03() {
         cy.contains('Change of secretary\'s details - CH03').click();
     }
+
+    selectPscs() {
+        cy.contains('Persons with significant control').click();
+        return this;
+    }
+
+    selectPsc01() {
+        cy.contains('Notification of a person with significant control (PSC) - PSC01').click();
+        return this;
+    }
+
+    selectPsc04() {
+        cy.get('#psc04-form-link').click();
+        return this;
+    }
+    
 }
 
 export default AllFormsPage

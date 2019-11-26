@@ -68,6 +68,16 @@ class OfficerAppointment extends BasePage {
         cy.get('#residential-address-county').type(invalidCharacter);
         return this;
     }
+    
+    selectOfficer(elementId, officerName) {
+        cy.get(elementId).each(($el) => {
+            const text = $el.text();
+            cy.log(text);
+            if (text.includes(officerName)) {
+                cy.wrap($el).should('contain.text', officerName).click();
+            }
+        })
+    }
 
 }
 export default OfficerAppointment
