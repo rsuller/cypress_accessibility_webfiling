@@ -4,15 +4,15 @@ import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import ChangeIndividualPscPage from '../../support/page_objects/ChangeIndividualPscPage';
 
+const companyOverview = new CompanyOverviewPage();
+const preFilingPage = new PreFilingPSCPage();
+const appointPSC01Page = new AppointPSC01Page();
+const allForms = new AllFormsPage();
+const psc04Page = new ChangeIndividualPscPage();
+
 describe('Change of person with significant control (PSC) details', () => {
-    it('File successful PSC04', () => {
-
-        const companyOverview = new CompanyOverviewPage();
-        const preFilingPage = new PreFilingPSCPage();
-        const appointPSC01Page = new AppointPSC01Page();
-        const allForms = new AllFormsPage();
-        const psc04Page = new ChangeIndividualPscPage();
-
+    beforeEach(() => {
+        cy.log('Appoint a PSC01 as a prerequisite');
         // Go to PSC01
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc01();
@@ -31,6 +31,9 @@ describe('Change of person with significant control (PSC) details', () => {
         appointPSC01Page.selectTodayAsRegisterEntryDate();
         appointPSC01Page.submitNotification();
 
+    })
+
+        it('File successful PSC04', () => {
         // Go to PSC04
         appointPSC01Page.clickCompanyOverview();
         companyOverview.selectAllForms();
