@@ -8,7 +8,11 @@ class AppointPSC01Page extends PscAppointment {
         cy.get('#dob-container > div.dateselector > .date-selector > :nth-child(4) > .selector-year').select(year);
         cy.get('#dummy-dob-continue').click();
     }
-  
+
+    submitNotification() {
+        cy.get(':nth-child(19) > div > .button').click();
+    }
+
 }
 
 export default AppointPSC01Page

@@ -1,7 +1,13 @@
-class PreFilingPSCPage {
+import PscAppointment from "./generic/PscAppointment";
+
+class PreFilingPSCPage extends PscAppointment {
 
     appointPsc() {
         cy.get('.button').click();
+    }
+
+    changePscDetails() {
+        cy.get('#psc04-prescreen-start').click();
     }
 
 }

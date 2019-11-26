@@ -32,5 +32,15 @@ class OfficerAppointment {
         cy.get('#country-of-residence-container-continue').click();
     }
 
+    selectOfficer(elementId, officerName) {
+        cy.get(elementId).each(($el) => {
+            const text = $el.text();
+            cy.log(text);
+            if (text.includes(officerName)) {
+                cy.wrap($el).should('contain.text', officerName).click();
+            }
+        })
+    }
+
 }
 export default OfficerAppointment

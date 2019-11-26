@@ -1,4 +1,6 @@
-class DirectorsAndSecretariesPage {
+import OfficerAppointment from "./generic/OfficerAppointment";
+
+class DirectorsAndSecretariesPage extends OfficerAppointment {
 
     checkTableContents() {
         // Check to ensure the labels are present and correct
@@ -19,16 +21,6 @@ class DirectorsAndSecretariesPage {
     selectOfficerToEdit(officerName) {
         // This will select the Edit link of the named officer
         this.selectOfficer('tbody  tr td:nth-child(4)  a', officerName);
-    }
-
-    selectOfficer(elementId, officerName) {
-        cy.get(elementId).each(($el) => {
-            const text = $el.text();
-            cy.log(text);
-            if (text.includes(officerName)) {
-                cy.wrap($el).should('contain.text', officerName).click();
-            }
-        })
     }
 
     confirmTermination() {
