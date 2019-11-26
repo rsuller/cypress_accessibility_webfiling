@@ -1,4 +1,9 @@
-class OfficerAppointment {
+import BasePage from "./BasePage";
+
+// Constants
+const invalidCharacter = "`";
+
+class OfficerAppointment extends BasePage {
 
     enterName(title, firstName, middleName, lastName) {
         cy.get('#Title').type(title);
@@ -32,6 +37,38 @@ class OfficerAppointment {
         cy.get('#country-of-residence-container-continue').click();
     }
 
+    expandCorrespondenceDetails() {
+        cy.get('#correspondence-address-choice-manual-label').click();
+        cy.contains('Enter address manually').wait(2000).click();
+    }
+
+    expandHomeAddressDetails() {
+        cy.get('#home-address-choice-manual-label').click();
+        cy.get('#residential-address-manual-link').wait(2000).click();
+    }
+
+    invalidEntryForNameFields() {
+        cy.get('#Title').type(invalidCharacter);
+        cy.get('#OtherForenames').type(invalidCharacter);
+        return this;
+    }
+
+    enterInvalidCharacterForCorrespondenceAddress() {
+        cy.get('#service-address-postcode').type(invalidCharacter);
+        cy.get('#service-address-thoroughfare').type(invalidCharacter);
+        cy.get('#service-address-county').type(invalidCharacter);
+        cy.get('#service-address-careOfName').type(invalidCharacter);
+        cy.get('#service-address-poBox').type(invalidCharacter);
+        return this;
+    }
+
+    enterInvalidCharacterForHomeAddress() {
+        cy.get('#residential-address-postcode').type(invalidCharacter);
+        cy.get('#residential-address-thoroughfare').type(invalidCharacter);
+        cy.get('#residential-address-county').type(invalidCharacter);
+        return this;
+    }
+    
     selectOfficer(elementId, officerName) {
         cy.get(elementId).each(($el) => {
             const text = $el.text();
