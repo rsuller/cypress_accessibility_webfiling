@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "precypress": "eslint cypress"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "axe-core": "^3.4.0",
     "cypress": "^3.6.1",
-    "cypress-axe": "^0.5.1"
+    "cypress-axe": "^0.5.1",
+    "eslint": "^6.7.1"
   }
 }
