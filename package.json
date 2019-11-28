@@ -30,9 +30,7 @@
     "cypress": "^3.6.1",
     "cypress-axe": "^0.5.1",
     "eslint": "^6.7.1",
-    "eslint-plugin-import": "^2.18.2"
-  },
-  "dependencies": {
+    "eslint-plugin-import": "^2.18.2",
     "eslint-watch": "^6.0.1"
   }
 }
