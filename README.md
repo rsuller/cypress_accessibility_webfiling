@@ -7,6 +7,15 @@ Automated accessibility testing for Webfiling using Cypress.io
 ### BEFORE YOU START
 You must ensure you have your proxy settings, set up correctly. Please see [here](https://docs.cypress.io/guides/references/proxy-configuration.html#Set-a-proxy-on-Linux-or-macOS) for details
 
+**YOU MAY EXPERIENCE ISSUES WITH SETTING PROXY. PLEASE ENSURE YOU'VE SET THE DETAILS IN NPM, BY DOING THE FOLLOWING**
+```
+npm config set proxy http://wsproxy.internal.ch:8080
+npm config set https-proxy https://wsproxy.internal.ch:8080
+```
+
+### IDE
+It is recommended that you use Visual Studio Code which is optimised for Javascript. Please download [here](https://code.visualstudio.com/Download)
+
 ### Open Cypress with
 `npm run cypress`
 
