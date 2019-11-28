@@ -4,9 +4,10 @@
   "description": "Accessbility testing for Webfiling using Cypress.io",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "cypress": "cypress open",
-    "precypress": "eslint cypress",
+    "cypress:test": "cypress run --browser chrome",
+    "cypress:open": "cypress open",
+    "precypress:open": "npm run lint",
+    "precypress:test": "npm run precypress:open",
     "lint": "esw cypress"
   },
   "repository": {
