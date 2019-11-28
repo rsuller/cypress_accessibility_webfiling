@@ -31,6 +31,15 @@ class AllFormsPage {
         cy.get('#psc04-form-link').click();
         return this;
     }
+
+    selectStrikeOffAndDissolution() {
+        cy.contains('Strike off and dissolution').click();
+        return this;
+    }
+
+    selectDs02() {
+        cy.contains('Withdrawal of application to strike off - DS02').click();
+    }
     
 }
 
