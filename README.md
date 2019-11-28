@@ -4,6 +4,9 @@ Automated accessibility testing for Webfiling using Cypress.io
 
 > You will need to have nodeJs installed on your machine, please download [nodeJs](https://nodejs.org/en/download/)
 
+### BEFORE YOU START
+You must ensure you have your proxy settings, set up correctly. Please see [here](https://docs.cypress.io/guides/references/proxy-configuration.html#Set-a-proxy-on-Linux-or-macOS) for details
+
 ### Open Cypress with
 `npm run cypress`
 
