@@ -4,6 +4,43 @@ Automated accessibility testing for Webfiling using Cypress.io
 
 > You will need to have nodeJs installed on your machine, please download [nodeJs](https://nodejs.org/en/download/)
 
+### BEFORE YOU START
+You must ensure you have your proxy settings, set up correctly. Please see [here](https://docs.cypress.io/guides/references/proxy-configuration.html#Set-a-proxy-on-Linux-or-macOS) for details
+
+**YOU MAY EXPERIENCE ISSUES WITH SETTING PROXY. PLEASE ENSURE YOU'VE SET THE DETAILS IN NPM, BY DOING THE FOLLOWING**
+```
+npm config set proxy http://wsproxy.internal.ch:8080
+npm config set https-proxy https://wsproxy.internal.ch:8080
+```
+> There has been a known issue with ssl. If you see errors similar to the below please do the following in order to correct it.
+
+```
+npm ERR! code EPROTO
+npm ERR! errno EPROTO
+npm ERR! request to https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz failed, reason: write EPROTO 11784:error:1408F10B:SSL routines:ssl3_get_record:wrong version number:c:\ws\deps\openssl\openssl\ssl\record\ssl3_record.c:332:
+npm ERR!
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\someuser\AppData\Roaming\npm-cache\_logs\2019-11-28T11_50_24_543Z-debug.log
+
+```
+_You must ensure that your proxy settings are correct. Try the following:_
+```
+env | grep proxy
+```
+This should return
+```
+https_proxy=http://wsproxy.internal.ch:8080
+http_proxy=http://wsproxy.internal.ch:8080
+```
+If not, please do the following from `GitBash`:
+```
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$http_proxy
+```
+
+### IDE
+It is recommended that you use Visual Studio Code which is optimised for Javascript. Please download [here](https://code.visualstudio.com/Download)
+
 ### Open Cypress with
 `npm run cypress`
 
