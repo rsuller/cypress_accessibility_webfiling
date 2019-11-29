@@ -1,4 +1,6 @@
-class CorporateOfficerAppointment {
+import BasePage from "./BasePage";
+
+class CorporateOfficerAppointment extends BasePage {
 
     enterCompanyName(companyName) {
         cy.get('#corporateName').type(companyName);
@@ -25,7 +27,7 @@ class CorporateOfficerAppointment {
     }
 
     selectEEAStatus(status) {
-        if(status === true) {
+        if (status === true) {
             cy.get('#EEAInd-label').click();
             cy.accessibilityCheck();
             // Enter EEA details
