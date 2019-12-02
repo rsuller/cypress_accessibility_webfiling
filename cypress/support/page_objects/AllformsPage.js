@@ -40,6 +40,16 @@ class AllFormsPage {
     selectDs02() {
         cy.contains('Withdrawal of application to strike off - DS02').click();
     }
+
+    selectChangeRoAndCompanyRecords() {
+        cy.contains('Change registered office and location of company records').click();
+        return this;
+    }
+
+    selectEh01() {
+        cy.contains("Provide your directors' information on the public register - EH01").click();
+    }
+
     
 }
 
