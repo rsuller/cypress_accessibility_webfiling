@@ -47,6 +47,11 @@ class PscAppointment extends OfficerAppointment {
         this.selectOfficer('tbody  tr td:nth-child(3)  a', pscName);
     }
 
+    submitNotification() {
+        cy.get(':nth-child(19) > div > .button').click();
+    }
+    
+
 }
 
 export default PscAppointment
