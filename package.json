@@ -27,7 +27,7 @@
   "homepage": "https://github.com/rsuller/cypress_accessibility_webfiling#readme",
   "devDependencies": {
     "axe-core": "^3.4.0",
-    "cypress": "^3.6.1",
+    "cypress": "^3.7.0",
     "cypress-axe": "^0.5.1",
     "eslint": "^6.7.1",
     "eslint-plugin-import": "^2.18.2",
