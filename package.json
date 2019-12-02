@@ -4,8 +4,11 @@
   "description": "Accessbility testing for Webfiling using Cypress.io",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "cypress": "cypress open"
+    "cypress:test": "cypress run --browser chrome",
+    "cypress:open": "cypress open",
+    "precypress:open": "npm run lint",
+    "precypress:test": "npm run precypress:open",
+    "lint": "esw cypress"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,9 @@
   "devDependencies": {
     "axe-core": "^3.4.0",
     "cypress": "^3.7.0",
-    "cypress-axe": "^0.5.1"
+    "cypress-axe": "^0.5.1",
+    "eslint": "^6.7.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-watch": "^6.0.1"
   }
 }
