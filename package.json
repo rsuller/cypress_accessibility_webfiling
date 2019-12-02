@@ -6,7 +6,7 @@
   "scripts": {
     "cypress:test": "cypress run --browser chrome",
     "cypress:open": "cypress open",
-    "precypress:open": "npm run lint",
+    "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
     "lint": "esw cypress"
   },
