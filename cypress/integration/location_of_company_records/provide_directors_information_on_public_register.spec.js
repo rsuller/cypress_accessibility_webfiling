@@ -4,8 +4,8 @@ import AllFormsPage from '../../support/page_objects/AllformsPage'
 import ManageRegistersPreFilingPage from '../../support/page_objects/ManageRegistersPreFilingPage'
 import ChangeDirectorsRegisterLocationPage from '../../support/page_objects/ChangeDirectorsRegisterLocationPage'
 
-describe('Change of registered office address', () => {
-    it('File successful AD01', () => {
+describe('Elect to Hold Directors Register on the Public Register', () => {
+    it('EH01 check all screens prior to submission', () => {
         // Go to change registered office address
         const companyOverview = new CompanyOverviewPage();
         const allFormsPage = new AllFormsPage();
