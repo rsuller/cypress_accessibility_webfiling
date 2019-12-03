@@ -33,13 +33,16 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         appointPSC02Page.selectTodayAsNotificationDate();
         appointPSC02Page.selectTodayAsRegisterEntryDate();
         appointPSC02Page.submitNotification();
+        cy.checkPageHeadingIs('Confirmation of Submission');
+        appointPSC02Page.clickCompanyOverview();
     })
 
     it('File successful PSC05', () => {
         // Go to PSC05
-        appointPSC02Page.clickCompanyOverview();
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
+        // Check the appointed PSC is displayed
+        cy.get('tbody tr td:nth-child(1)').should('contain', 'Pkdfv Llp')
         preFilingPage.selectPscToEdit('Pkdfv Llp');
         preFilingPage.changePsc05Details();
 
@@ -62,9 +65,9 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         cy.accessibilityCheck();
         changeLegalEntityPsc.cancelNatureOfControlChange();
 
-         // Date of change and register entry date sections are already expanded
-         cy.accessibilityCheck();
-    
+        // Date of change and register entry date sections are already expanded
+        cy.accessibilityCheck();
+
     })
 
 })
