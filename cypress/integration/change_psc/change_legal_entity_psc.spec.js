@@ -41,8 +41,12 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Go to PSC05
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
+
         // Check the appointed PSC is displayed
-        cy.get('tbody tr td:nth-child(1)').should('contain', 'Pkdfv Llp')
+        cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
+            expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
+        });
+
         preFilingPage.selectPscToEdit('Pkdfv Llp');
         preFilingPage.changePsc05Details();
 
