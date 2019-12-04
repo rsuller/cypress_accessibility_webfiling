@@ -5,7 +5,7 @@ import AppointCorporateSecretaryPage from '../../support/page_objects/AppointCor
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import ChangeCorporateSecretaryDetailsPage from '../../support/page_objects/ChangeCorporateSecretaryDetailsPage';
-import CorporateSecretaryChangeDetailsPreFilingPage  from '../../support/page_objects/CorporateSecretaryChangeDetailsPreFilingPage'
+import CorporateSecretaryChangeDetailsPreFilingPage from '../../support/page_objects/CorporateSecretaryChangeDetailsPreFilingPage'
 
 // Constants
 const companyOverview = new CompanyOverviewPage();
@@ -44,7 +44,7 @@ describe('Change corporate secretary details - CH04', () => {
         // Submit form
         appointCorporateSecretaryPage.submitForm();
         submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
-        .continue();
+            .continue();
 
         // Do not file accounts
         accountsReminder.doNotFileAccounts();
@@ -72,9 +72,17 @@ describe('Change corporate secretary details - CH04', () => {
 
         // Select change officer
         preFiling.changeCorporateSecretaryDetails();
+
+        // Expand all
+        /* 
+        Date change link is not visible so forcing the click to expand all sections before
+        checking the accessibility of the sections
+        */
+        cy.get('.changelink').click({ multiple: true, force: true });
         cy.accessibilityCheck();
+
         // Enter date of change
-        enterTodaysDate(); 
+        enterTodaysDate();
 
         // Change address
         changeCorporateSecretaryDetails.changeAddressPremise();
