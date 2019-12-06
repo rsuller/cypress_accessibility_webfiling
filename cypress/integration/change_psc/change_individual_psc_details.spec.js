@@ -40,7 +40,7 @@ describe('Change of person with significant control (PSC) details', () => {
         allForms.selectPscs().selectPsc04();
         preFilingPage.selectPscToEdit('Test Automation Ninja');
         cy.accessibilityCheck();
-        preFilingPage.changePscDetails();
+        preFilingPage.changePsc04Details();
         // Check correct page is loaded
         cy.checkPageHeadingIs('Change of person with significant control (PSC) details');
         cy.accessibilityCheck();
