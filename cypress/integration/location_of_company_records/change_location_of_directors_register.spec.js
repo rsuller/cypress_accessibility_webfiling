@@ -5,37 +5,23 @@ import ManageRegistersPreFilingPage from '../../support/page_objects/ManageRegis
 import ChangeDirectorsRegisterLocationPage from '../../support/page_objects/ChangeDirectorsRegisterLocationPage'
 import BasePage from '../../support/page_objects/generic/BasePage'
 
+const companyOverview = new CompanyOverviewPage();
+const allFormsPage = new AllFormsPage();
+const manageRegistersPreFilingPage = new ManageRegistersPreFilingPage();
+const submissionConfirmationPage = new SubmissionConfirmationPage();
+const changeDirectorsRegisterLocationPage = new ChangeDirectorsRegisterLocationPage();
+const basePage = new BasePage();
+
 describe('Elect to Hold Directors Register on the Public Register', () => {
     it('EH01 check all screens prior to submission', () => {
-        const companyOverview = new CompanyOverviewPage();
-        const allFormsPage = new AllFormsPage();
-        const manageRegistersPreFilingPage = new ManageRegistersPreFilingPage();
-        const submissionConfirmationPage = new SubmissionConfirmationPage();
-        const changeDirectorsRegisterLocationPage = new ChangeDirectorsRegisterLocationPage();
-        const basePage = new BasePage();
 
         // Select form from overview
         companyOverview.selectAllForms();
         allFormsPage.selectChangeRoAndCompanyRecords()
         .selectEh01();
-        
-        //Check the manage registers page
-        cy.accessibilityCheck();
 
         manageRegistersPreFilingPage.selectDirectorsRegister();
-
-        //Check the manage Director's registers page
-        cy.accessibilityCheck();
-
-        //Select to move registers to SAIL address
-        changeDirectorsRegisterLocationPage.moveRegistersToSailAddress();
-        cy.accessibilityCheck();
-
-        //Check after firing invalid SAIL address field errors
-        changeDirectorsRegisterLocationPage.invalidEntryforSAILAddressFields();
-        cy.accessibilityCheck();
-
-
+        
         //Method to hold directors register on public record
         changeDirectorsRegisterLocationPage.electToHoldOnPublicRegister();
 
@@ -53,8 +39,24 @@ describe('Elect to Hold Directors Register on the Public Register', () => {
 
         manageRegistersPreFilingPage.selectDirectorsRegister();
 
-        //
+        })
 
-    })
+        it('EH01/EW01 SAIL Address Error Validation', () => {
+        // Select form from overview
+        companyOverview.selectAllForms();
+        allFormsPage.selectChangeRoAndCompanyRecords()
+        .selectEh01();
+
+        manageRegistersPreFilingPage.selectDirectorsRegister();
+
+        //Select to move registers to SAIL address
+        changeDirectorsRegisterLocationPage.moveRegistersToSailAddress();
+        cy.accessibilityCheck();
+
+        //Check after firing invalid SAIL address field errors
+        changeDirectorsRegisterLocationPage.invalidEntryforSAILAddressFields();
+        cy.wait(5000);
+        cy.accessibilityCheck();
+        })
 
 })
