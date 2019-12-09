@@ -17,6 +17,10 @@ class AllFormsPage {
         cy.contains('Change of secretary\'s details - CH03').click();
     }
 
+    selectCH04() {
+        cy.contains('Change of corporate secretary\'s details - CH04').click();
+    }
+
     selectPscs() {
         cy.contains('Persons with significant control').click();
         return this;
@@ -29,6 +33,11 @@ class AllFormsPage {
 
     selectPsc04() {
         cy.get('#psc04-form-link').click();
+        return this;
+    }
+
+    selectPsc05() {
+        cy.get('#psc05-form-link').click();
         return this;
     }
 

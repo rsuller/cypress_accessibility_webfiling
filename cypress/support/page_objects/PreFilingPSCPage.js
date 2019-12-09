@@ -6,8 +6,12 @@ class PreFilingPSCPage extends PscAppointment {
         cy.get('.button').click();
     }
 
-    changePscDetails() {
+    changePsc04Details() {
         cy.get('#psc04-prescreen-start').click();
+    }
+
+    changePsc05Details() {
+        cy.get('#psc05-prescreen-start').click();
     }
 
 }

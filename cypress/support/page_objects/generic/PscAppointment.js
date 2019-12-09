@@ -44,8 +44,13 @@ class PscAppointment extends OfficerAppointment {
 
     selectPscToEdit(pscName) {
         // This will select the Edit link of the named psc
-        this.selectOfficer('tbody  tr td:nth-child(3)  a', pscName);
+        this.selectOfficer('tbody tr td:nth-child(3)  a', pscName);
     }
+
+    submitNotification() {
+        cy.get(':nth-child(19) > div > .button').click();
+    }
+    
 
 }
 
