@@ -8,10 +8,6 @@ class BasePage {
         cy.get("input[value^='Submit']").click();
     }
 
-    openCompanyOverview() {
-        cy.get(':nth-child(5) > .headerClick');
-    }
-
 }
 
 export default BasePage
