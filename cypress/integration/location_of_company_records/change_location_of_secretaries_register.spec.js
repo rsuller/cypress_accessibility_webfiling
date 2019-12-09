@@ -2,28 +2,27 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import ManageRegistersPreFilingPage from '../../support/page_objects/ManageRegistersPreFilingPage'
-import ChangeDirectorsRegisterLocationPage from '../../support/page_objects/ChangeDirectorsRegisterLocationPage'
+import ChangeSecretariesRegisterLocationPage from '../../support/page_objects/ChangeSecretariesRegisterLocationPage'
 import BasePage from '../../support/page_objects/generic/BasePage'
 
 const companyOverview = new CompanyOverviewPage();
 const allFormsPage = new AllFormsPage();
 const manageRegistersPreFilingPage = new ManageRegistersPreFilingPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
-const changeDirectorsRegisterLocationPage = new ChangeDirectorsRegisterLocationPage();
+const changeSecretariesRegisterLocationPage = new ChangeSecretariesRegisterLocationPage();
 const basePage = new BasePage();
 
-describe('EH01/EW01 - Elect to Hold Directors Register on the Public Register or Registered Office Address', () => {
+describe('EH03/EW03 - Elect to Hold Secretaries Register on the Public Register or at Registered Office Address', () => {
     beforeEach(function () {
         // Select form from overview
         companyOverview.selectAllForms();
-        allFormsPage.selectChangeRoAndCompanyRecords()
-            .selectEh01();
-        manageRegistersPreFilingPage.selectDirectorsRegister();
+        allFormsPage.selectChangeRoAndCompanyRecords().selectEh03();
+        manageRegistersPreFilingPage.selectSecretariesRegister();
     })
 
-    it('EH01/EW01 check all screens and submit form', () => {
-        //Elect to hold directors register on public record or  hold at the registered office
-        changeDirectorsRegisterLocationPage.moveDirectorsRegister();
+    it('EH03/EW03 check all screens and submit form', () => {
+        //Elect to hold secretaries register on public record or hold at the registered office
+        changeSecretariesRegisterLocationPage.moveSecretariesRegister();
 
         //Confirm submission page displayed and accessibility check
         submissionConfirmationPage.confirmHeadingContains('Confirmation of Submission');
@@ -31,13 +30,13 @@ describe('EH01/EW01 - Elect to Hold Directors Register on the Public Register or
 
     })
 
-    it('EH01/EW01 SAIL Address Error Validation', () => {
+    it('EH03/EW03 SAIL Address Error Validation', () => {
         //Select to move registers to SAIL address
-        changeDirectorsRegisterLocationPage.moveRegistersToSailAddress();
+        changeSecretariesRegisterLocationPage.moveRegistersToSailAddress();
         cy.accessibilityCheck();
 
         //Check after firing invalid SAIL address field errors
-        changeDirectorsRegisterLocationPage.invalidEntryforSAILAddressFields();
+        changeSecretariesRegisterLocationPage.invalidEntryforSAILAddressFields();
         cy.accessibilityCheck();
     })
 

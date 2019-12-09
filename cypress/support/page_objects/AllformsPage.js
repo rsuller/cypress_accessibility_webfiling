@@ -59,6 +59,10 @@ class AllFormsPage {
         cy.contains("Provide your directors' information on the public register - EH01").click();
     }
 
+    selectEh03() {
+        cy.contains("Provide your secretaries' information on the public register - EH03").click();
+    }
+
     
 }
 
