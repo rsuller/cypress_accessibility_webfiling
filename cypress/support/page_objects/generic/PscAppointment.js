@@ -47,6 +47,11 @@ class PscAppointment extends OfficerAppointment {
         this.selectOfficer('tbody tr td:nth-child(3)  a', pscName);
     }
 
+    selectPscToRemove(pscName) {
+        // This will select the Remove link of the named psc
+        this.selectOfficer('tbody tr td:nth-child(4)  a', pscName);
+    }
+
     submitNotification() {
         cy.get(':nth-child(19) > div > .button').click();
     }
