@@ -12,43 +12,26 @@ const submissionConfirmationPage = new SubmissionConfirmationPage();
 const changeDirectorsRegisterLocationPage = new ChangeDirectorsRegisterLocationPage();
 const basePage = new BasePage();
 
-describe('Elect to Hold Directors Register on the Public Register', () => {
-    it('EH01 check all screens prior to submission', () => {
-
+describe('EH01/EW01 - Elect to Hold Directors Register on the Public Register or Registered Office Address', () => {
+    beforeEach(function() {
         // Select form from overview
         companyOverview.selectAllForms();
         allFormsPage.selectChangeRoAndCompanyRecords()
         .selectEh01();
-
         manageRegistersPreFilingPage.selectDirectorsRegister();
-        
-        //Method to hold directors register on public record
-        changeDirectorsRegisterLocationPage.electToHoldOnPublicRegister();
+    })
+
+    it('EH01 check all screens prior to submission', () => {
+        //Elect to hold directors register on public record or  hold at the registered office
+        changeDirectorsRegisterLocationPage.moveDirectorsRegister();
 
         //Confirm submission page displayed and accessibility check
         submissionConfirmationPage.confirmHeadingContains('Confirmation of Submission');
-        //cy.accessibilityCheck(); We know this is a failure so commenting out for now
-
-        //Back to company overview 
-        basePage.openCompanyOverview();
-
-        // Select form from overview to move registers back
-        companyOverview.selectAllForms();
-        allFormsPage.selectChangeRoAndCompanyRecords()
-        .selectEh01();
-
-        manageRegistersPreFilingPage.selectDirectorsRegister();
+        cy.accessibilityCheck();
 
         })
 
         it('EH01/EW01 SAIL Address Error Validation', () => {
-        // Select form from overview
-        companyOverview.selectAllForms();
-        allFormsPage.selectChangeRoAndCompanyRecords()
-        .selectEh01();
-
-        manageRegistersPreFilingPage.selectDirectorsRegister();
-
         //Select to move registers to SAIL address
         changeDirectorsRegisterLocationPage.moveRegistersToSailAddress();
         cy.accessibilityCheck();
