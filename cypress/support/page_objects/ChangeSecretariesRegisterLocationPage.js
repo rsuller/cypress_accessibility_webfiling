@@ -1,7 +1,7 @@
 // Constants 
 const invalidCharacter = "`";
 
-class ChangeDirectorsRegisterLocationPage {
+class ChangeSecretariesRegisterLocationPage {
 
     moveRegistersToSailAddress() {
         //Elect move registers to SAIL address and check accesibility of fields
@@ -12,7 +12,7 @@ class ChangeDirectorsRegisterLocationPage {
         cy.accessibilityCheck();
 
         cy.get('#address-manual-link').click();
-
+        cy.accessibilityCheck();
     }
 
     invalidEntryforSAILAddressFields() {
@@ -28,7 +28,7 @@ class ChangeDirectorsRegisterLocationPage {
 
     }
 
-    moveDirectorsRegister() {
+    moveSecretariesRegister() {
         //Get the label text describing where the registers are held
         cy.get('#registers-accordion > :nth-child(1)').then(($label) => {
 
@@ -54,4 +54,4 @@ class ChangeDirectorsRegisterLocationPage {
         })
     }
 }
-export default ChangeDirectorsRegisterLocationPage
+export default ChangeSecretariesRegisterLocationPage
