@@ -40,6 +40,11 @@ class AllFormsPage {
         cy.get('#psc05-form-link').click();
         return this;
     }
+    
+    selectPsc07() {
+        cy.get('#psc07-form-link').click();
+        return this;
+    }
 
     selectStrikeOffAndDissolution() {
         cy.contains('Strike off and dissolution').click();

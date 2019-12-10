@@ -3,6 +3,7 @@ import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import AddressPage from '../../support/page_objects/generic/Address';
+import { rle_psc_name } from '../../fixtures/psc.json';
 
 describe('Appoint a corporate PSC', () => {
     it('File successful PSC02', () => {
@@ -28,7 +29,7 @@ describe('Appoint a corporate PSC', () => {
 
         cy.accessibilityCheck();
 
-        appointPSC02Page.enterCorporateName("PKDFV LLP");
+        appointPSC02Page.enterCorporateName(rle_psc_name);
 
         cy.accessibilityCheck();
         addressPage.lookUpServiceAddress('10', 'CF14 3UZ');

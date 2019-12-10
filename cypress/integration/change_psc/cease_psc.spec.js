@@ -4,7 +4,7 @@ import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import AddressPage from '../../support/page_objects/generic/Address';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
-import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
+import CeasePsc07Page from '../../support/page_objects/CeasePsc07Page';
 import { rle_psc_name } from '../../fixtures/psc.json';
 
 const companyOverview = new CompanyOverviewPage();
@@ -13,10 +13,9 @@ const appointPSC02Page = new PscAppointment();
 const addressPage = new AddressPage();
 const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
-const changeLegalEntityPsc = new ChangeLegalEntityPsc();
+const ceasePsc07Page = new CeasePsc07Page();
 
-
-describe('Change of a relevant legal entity with significant control (PSC) details - PSC05', () => {
+describe('Notice of ceasing to be a person with significant control (PSC) - PSC07', () => {
     beforeEach(() => {
         cy.log('Appoint a PSC02 as a prerequisite');
         // Go to PSC02
@@ -38,39 +37,36 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         appointPSC02Page.clickCompanyOverview();
     })
 
-    it('File successful PSC05', () => {
-        // Go to PSC05
+    it('File successful PSC07 & error validation', () => {
+        // Go to PSC07
         companyOverview.selectAllForms();
-        allForms.selectPscs().selectPsc05();
+        allForms.selectPscs().selectPsc07();
 
         // Check the appointed PSC is displayed
         cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
             expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
         });
 
-        preFilingPage.selectPscToEdit(rle_psc_name);
-        preFilingPage.changePsc05Details();
+        preFilingPage.selectPscToRemove(rle_psc_name);
+        // Check correct PSC07 page is loaded
+        cy.checkPageHeadingIs('Notice of ceasing to be a Person with Significant Control (PSC)');
 
-        // PSC05
-        changeLegalEntityPsc.changePscName();
+        // Error validation
+        ceasePsc07Page.submitNoticeOfCessation();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.changeNameCancel();
 
-        changeLegalEntityPsc.changePscAddress()
+        // File successful PSC07
+        ceasePsc07Page.selectTodayAsCessationDate();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.expandPscAddress();
+        ceasePsc07Page.selectTodayAsRegisterEntryDate();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelPscAddressChange();
 
-        changeLegalEntityPsc.changeEntityDetails();
+        ceasePsc07Page.confirmPscCessation();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelEntityDetailsChange();
+        ceasePsc07Page.submitNoticeOfCessation();
 
-        changeLegalEntityPsc.changeNatureOfControl();
-        cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelNatureOfControlChange();
-
-        // Date of change and register entry date sections are already expanded
+        // Check confirmation of submission page is displayed
+        cy.checkPageHeadingIs('Confirmation of Submission');
         cy.accessibilityCheck();
 
     })
