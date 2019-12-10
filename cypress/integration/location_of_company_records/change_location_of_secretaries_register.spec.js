@@ -11,7 +11,7 @@ const submissionConfirmationPage = new SubmissionConfirmationPage();
 const changeSecretariesRegisterLocationPage = new ChangeSecretariesRegisterLocationPage();
 
 describe('EH03/EW03 - Elect to Hold Secretaries Register on the Public Register or at Registered Office Address', () => {
-    beforeEach(function () {
+    beforeEach('Select secretaries register', () => {
         // Select form from overview
         companyOverview.selectAllForms();
         allFormsPage.selectChangeRoAndCompanyRecords().selectEh03();
