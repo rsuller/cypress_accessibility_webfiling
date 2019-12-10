@@ -5,6 +5,7 @@ import AddressPage from '../../support/page_objects/generic/Address';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import CeasePsc07Page from '../../support/page_objects/CeasePsc07Page';
+import { rle_psc_name } from '../../fixtures/psc.json';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
@@ -13,7 +14,6 @@ const addressPage = new AddressPage();
 const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
 const ceasePsc07Page = new CeasePsc07Page();
-
 
 describe('Notice of ceasing to be a person with significant control (PSC) - PSC07', () => {
     beforeEach(() => {
@@ -26,7 +26,7 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
 
         // Appoint PSC02 - (No PSC data is baselined)
         cy.checkPageHeadingIs('Notification of a relevant legal entity with significant control (PSC)');
-        appointPSC02Page.enterCorporateName("PKDFV LLP");
+        appointPSC02Page.enterCorporateName(rle_psc_name);
         addressPage.lookUpServiceAddress('10', 'CF14 3UZ');
         appointPSC02Page.enterEntityDetails('LLP', 'EU');
         appointPSC02Page.selectNatureOfControl();
@@ -47,7 +47,7 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
             expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
         });
 
-        preFilingPage.selectPscToRemove('Pkdfv Llp');
+        preFilingPage.selectPscToRemove(rle_psc_name);
         // Check correct PSC07 page is loaded
         cy.checkPageHeadingIs('Notice of ceasing to be a Person with Significant Control (PSC)');
 
@@ -70,6 +70,5 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
         cy.accessibilityCheck();
 
     })
-
 
 })
