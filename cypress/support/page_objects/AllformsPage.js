@@ -40,6 +40,11 @@ class AllFormsPage {
         cy.get('#psc05-form-link').click();
         return this;
     }
+    
+    selectPsc07() {
+        cy.get('#psc07-form-link').click();
+        return this;
+    }
 
     selectStrikeOffAndDissolution() {
         cy.contains('Strike off and dissolution').click();
@@ -57,6 +62,10 @@ class AllFormsPage {
 
     selectEh01() {
         cy.contains("Provide your directors' information on the public register - EH01").click();
+    }
+
+    selectEh03() {
+        cy.contains("Provide your secretaries' information on the public register - EH03").click();
     }
 
     

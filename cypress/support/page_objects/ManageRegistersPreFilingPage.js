@@ -9,6 +9,14 @@ class ManageRegistersPreFilingPage {
         cy.contains('Change location of this register').click();
     }
 
+    selectSecretariesRegister() {
+        //Click Secretaries link and then change register location button
+        cy.get(':nth-child(2) > .toggle-link').click();
+        //Check after clicking the link
+        cy.accessibilityCheck();
+        cy.get(':nth-child(2) > .hidden-text > .grid_4 > p > .button').click();
+    }
+
 
 }
 
