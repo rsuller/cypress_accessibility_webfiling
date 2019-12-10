@@ -3,14 +3,12 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import ManageRegistersPreFilingPage from '../../support/page_objects/ManageRegistersPreFilingPage'
 import ChangeSecretariesRegisterLocationPage from '../../support/page_objects/ChangeSecretariesRegisterLocationPage'
-import BasePage from '../../support/page_objects/generic/BasePage'
 
 const companyOverview = new CompanyOverviewPage();
 const allFormsPage = new AllFormsPage();
 const manageRegistersPreFilingPage = new ManageRegistersPreFilingPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const changeSecretariesRegisterLocationPage = new ChangeSecretariesRegisterLocationPage();
-const basePage = new BasePage();
 
 describe('EH03/EW03 - Elect to Hold Secretaries Register on the Public Register or at Registered Office Address', () => {
     beforeEach(function () {
