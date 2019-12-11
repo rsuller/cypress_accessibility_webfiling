@@ -11,7 +11,7 @@ const submissionConfirmationPage = new SubmissionConfirmationPage();
 const changeLocationOfRegisters = new ChangeLocationOfRegisters();
 
 describe('EH01/02/03, EW01/02/03 - Elect to Hold Registers on the Public Register or Registered Office Address', () => {
-    beforeEach(function () {
+    beforeEach(() => {
         // Select form from overview
         companyOverview.selectAllForms();
         allFormsPage.selectChangeRoAndCompanyRecords()
