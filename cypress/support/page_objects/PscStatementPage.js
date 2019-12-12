@@ -30,6 +30,14 @@ class PscStatmentPage extends PscAppointment {
 
     }
 
+    submitStatment() {
+        cy.get(':nth-child(7) > div > .button').click();
+        cy.checkPageHeadingIs('Confirmation of Submission');
+        // Navigate back to company overview page
+        cy.get('.positive').click();
+        cy.get('.margin-top-20 > a').click();
+    }
+
 }
 
 export default PscStatmentPage
