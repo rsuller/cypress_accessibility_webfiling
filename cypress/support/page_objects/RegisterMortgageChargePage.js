@@ -35,11 +35,11 @@ class RegisterMortgageChargePage extends BasePage {
     }
 
     selectNegativePledgeYes() {
-        cy.get('#charge-negativepledge-yes')
+        cy.get('#charge-negativepledge-yes').click();
     }
 
     selectTrusteeStatementYes() {
-        cy.get('#charge-baretrustee-yes');
+        cy.get('#charge-baretrustee-yes').click();
     }
 
     fileUpload(fileName) {
@@ -57,7 +57,7 @@ class RegisterMortgageChargePage extends BasePage {
     }
 
     deedCertificationYes(certifiedByName) {
-        cy.get('#charge-redaction-yes');
+        cy.get('#charge-redaction-yes').click();
         cy.get('#certifiedBy').type(certifiedByName)
     }
 

@@ -3,12 +3,16 @@ import AllFormsPage from '../../support/page_objects/AllformsPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
 import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 import RegisterMortgageChargePage from '../../support/page_objects/RegisterMortgageChargePage'
+import PaymentSelectionPage from '../../support/page_objects/PaymentSelectionPage'
+import WebfilingPaymentPreScreen from '../../support/page_objects/WebfilingPaymentPreScreen'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const mortgagePreFilingPage = new MortgagePreFilingPage
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const registerMortgageChargePage = new RegisterMortgageChargePage();
+const paymentSelectionPage = new PaymentSelectionPage();
+const webfilingPaymentPreScreen = new WebfilingPaymentPreScreen();
 const successfulUploadFile = 'UploadSuccess.pdf';
 const unsuccessfulUploadFile = 'UploadFail.pdf'
 
@@ -27,7 +31,7 @@ describe('Register a charge - MR01', () => {
         registerMortgageChargePage.initialAccessibilityCheck()
     })
 
-    it('MR01 - Registration of a charge successful', () => {
+    it.only('MR01 - Registration of a charge successful', () => {
         registerMortgageChargePage.selectTodayAsChargeCreationDate();
         cy.accessibilityCheck();
 
@@ -63,9 +67,15 @@ describe('Register a charge - MR01', () => {
 
         registerMortgageChargePage.submitChargeRegistration();
 
-        // Confirm submission
-        submissionConfirmationPage.confirmHeadingContains('Confirmation of Submission')
+        // Select pay by account and check accessibility
+        paymentSelectionPage.confirmHeadingContains('Payment').selectPaymentByAccount()
+        .enterPresenterID("12345678901").enterPresenterAuthcode("12345678901")
         cy.accessibilityCheck();
+        paymentSelectionPage.continue();
+
+        //Check Submission screen
+        submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
+        cy.accessibilityCheck();        
     })
 
     it('MR01 - Registration of a charge Error Validation', () => {
