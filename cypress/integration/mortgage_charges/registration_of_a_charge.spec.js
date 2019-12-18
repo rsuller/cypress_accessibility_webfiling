@@ -60,7 +60,9 @@ describe('Register a charge - MR01', () => {
 
         registerMortgageChargePage.authenticationofCertification();
         cy.accessibilityCheck();
-        
+
+        registerMortgageChargePage.submitChargeRegistration();
+
         // Confirm submission
         submissionConfirmationPage.confirmHeadingContains('Confirmation of Submission')
         cy.accessibilityCheck();
