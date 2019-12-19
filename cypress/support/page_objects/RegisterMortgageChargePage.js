@@ -6,7 +6,7 @@ class RegisterMortgageChargePage extends BasePage {
     //Expand all fields and check the accessibility before interacting with the page
     initialAccessibilityCheck() {
         this.expandAll();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         return this;
     }
 

@@ -66,8 +66,9 @@ describe('Register a charge - MR01', () => {
         registerMortgageChargePage.submitChargeRegistration();
 
         // Select pay by account and check accessibility
-        paymentSelectionPage.confirmHeadingContains('Payment').selectPaymentByAccount()
-        .enterPresenterID("12345678901").enterPresenterAuthcode("12345678901")
+        checkPageHeadingIs('Payment');
+        paymentSelectionPage.selectPaymentByAccount()
+        .enterPresenterID().enterPresenterAuthcode()
         cy.accessibilityCheck();
         paymentSelectionPage.continue();
 

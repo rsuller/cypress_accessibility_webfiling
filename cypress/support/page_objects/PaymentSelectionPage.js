@@ -1,9 +1,6 @@
-class PaymentSelectionPage {
+import { presenter_id, presenter_auth_code } from '../fixtures/presenter.json';
 
-    confirmHeadingContains(text) {
-        cy.get('h1').should('have.text', text);
-        return this;
-    }
+class PaymentSelectionPage {
 
     selectPaymentByAccount() {
         cy.get('#paytype_account').click();
@@ -11,16 +8,15 @@ class PaymentSelectionPage {
 
     }
         
-    enterPresenterID(id) {
-        cy.get('#presenterId').type(id);
+    enterPresenterID() {
+        cy.get('#presenterId').type(presenter_id);
         return this;
     }
 
-    enterPresenterAuthcode(authcode) {
-        cy.get('#presenterCode').type(authcode);
+    enterPresenterAuthcode() {
+        cy.get('#presenterCode').type(presenter_auth_code);
         return this;
     }
-
 
     continue() {
         cy.get('.button').click();
