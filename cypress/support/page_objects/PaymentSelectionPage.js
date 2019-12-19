@@ -1,4 +1,4 @@
-import { presenter_id, presenter_auth_code } from '../fixtures/presenter.json';
+import { presenter_id, presenter_auth_code } from '../../fixtures/presenter.json';
 
 class PaymentSelectionPage {
 
