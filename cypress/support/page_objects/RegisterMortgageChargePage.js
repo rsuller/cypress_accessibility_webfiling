@@ -1,7 +1,5 @@
 import BasePage from "./generic/BasePage";
 
- 
-const successfulUpload = 'UploadSuccess.pdf';
 
 class RegisterMortgageChargePage extends BasePage {
 
