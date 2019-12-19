@@ -52,6 +52,13 @@ Running tests via the command line will run in headless mode e.g.
 ```
 ./node_modules/cypress/bin/cypress run --spec "{relative_path}\{test_name}.spec.js"
 ```
+> Note the above will run the tests in [Electron](https://electronjs.org/)
+
+If you wish to run your tests in chrome then as of version 3.8.0 you can do the following:
+```
+cypress run --headless --browser chrome
+```
+
 
 *When tests are executed via the command line a video of the run will be recorded in the **cypress** root folder e.g.*
 `C:\Users\user\cypress\videos\test_name.spec.js.mp4 `

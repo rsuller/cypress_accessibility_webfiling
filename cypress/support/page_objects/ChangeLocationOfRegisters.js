@@ -1,7 +1,11 @@
+// Change the location of registers to either the Registered office or the public record.
+// These are the registers of directors, secretaries and directors usual residential addresses.
+// EW01/02/03 and EH01/02/03 all have common elements, so are contained in this one page object.
+
 // Constants 
 const invalidCharacter = "`";
 
-class ChangeDirectorsRegisterLocationPage {
+class ChangeLocationOfRegisters {
 
     moveRegistersToSailAddress() {
         //Elect move registers to SAIL address and check accesibility of fields
@@ -28,19 +32,19 @@ class ChangeDirectorsRegisterLocationPage {
 
     }
 
-    moveDirectorsRegister() {
+    moveARegister() {
         //Get the label text describing where the registers are held
         cy.get('#registers-accordion > :nth-child(1)').then(($label) => {
 
             //Label shows registers are currently on the public register
-            //so elect to hold at the registered office (EW01 - Withdraw from public register)
+            //so elect to hold at the registered office (EW01/02/03 - Withdraw from public register)
             if ($label.text().includes("Currently provided on the public register")) {
                 cy.get('#move-to-ro').click();
                 //Check after clicking the radio button
                 cy.accessibilityCheck();
             } else {
                 //Registers are already at the RO
-                //so elect to hold them on the public register (EH01)
+                //so elect to hold them on the public register (EH01/02/03)
                 cy.get('#elect-to-public').click();
 
                 //Confirm decision by clicking the checkbox
@@ -54,4 +58,4 @@ class ChangeDirectorsRegisterLocationPage {
         })
     }
 }
-export default ChangeDirectorsRegisterLocationPage
+export default ChangeLocationOfRegisters

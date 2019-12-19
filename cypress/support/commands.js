@@ -24,6 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+//This is necessary for testing file uploads
+import 'cypress-file-upload';
+
 // Sign into service via UI
 Cypress.Commands.add('signIntoWebfiling', () => {
     cy.visit('/')
