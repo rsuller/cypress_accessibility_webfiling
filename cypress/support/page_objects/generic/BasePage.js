@@ -1,7 +1,7 @@
 class BasePage {
 
     expandAll() {
-        cy.contains('Expand all').click();
+        cy.contains('Expand all').click({force: true});
     }
 
     submitForm() {

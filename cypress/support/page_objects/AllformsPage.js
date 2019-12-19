@@ -63,7 +63,16 @@ class AllFormsPage {
     selectEh01() {
         cy.contains("Provide your directors' information on the public register - EH01").click();
     }
-    
+
+    selectMortgageForms() {
+        cy.get('#mortgage-forms').click();
+        return this;
+    }
+
+    selectMr01() {
+        cy.contains("Register a charge - MR01").click();
+    }
+
 }
 
 export default AllFormsPage
