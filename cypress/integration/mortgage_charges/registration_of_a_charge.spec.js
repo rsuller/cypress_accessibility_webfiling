@@ -4,7 +4,6 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 import RegisterMortgageChargePage from '../../support/page_objects/RegisterMortgageChargePage'
 import PaymentSelectionPage from '../../support/page_objects/PaymentSelectionPage'
-import WebfilingPaymentPreScreen from '../../support/page_objects/WebfilingPaymentPreScreen'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
@@ -12,7 +11,6 @@ const mortgagePreFilingPage = new MortgagePreFilingPage
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const registerMortgageChargePage = new RegisterMortgageChargePage();
 const paymentSelectionPage = new PaymentSelectionPage();
-const webfilingPaymentPreScreen = new WebfilingPaymentPreScreen();
 const successfulUploadFile = 'UploadSuccess.pdf';
 const unsuccessfulUploadFile = 'UploadFail.pdf'
 
@@ -31,7 +29,7 @@ describe('Register a charge - MR01', () => {
         registerMortgageChargePage.initialAccessibilityCheck()
     })
 
-    it.only('MR01 - Registration of a charge successful', () => {
+    it('MR01 - Registration of a charge successful', () => {
         registerMortgageChargePage.selectTodayAsChargeCreationDate();
         cy.accessibilityCheck();
 
