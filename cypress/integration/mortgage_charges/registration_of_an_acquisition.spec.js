@@ -14,14 +14,14 @@ const paymentSelectionPage = new PaymentSelectionPage();
 const successfulUploadFile = 'UploadSuccess.pdf';
 const unsuccessfulUploadFile = 'UploadFail.pdf'
 
-describe('Register a charge - MR01', () => {
-    beforeEach('Select MR01 Form and navigate past pre-filing screen', () => {
+describe('Register an acquisition - MR02', () => {
+    beforeEach('Select MR02 Form and navigate past pre-filing screen', () => {
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectMortgageForms()
-            .selectMr01();
+            .selectMr02();
 
-        //Check the register a charge pre-filing page
+        //Check the register an acquisition pre-filing page
         cy.accessibilityCheck();
         mortgagePreFilingPage.proceedWithFiling();
 
@@ -29,8 +29,11 @@ describe('Register a charge - MR01', () => {
         registerMortgageChargeOrAcquisitionPage.initialAccessibilityCheck()
     })
 
-    it('MR01 - Registration of a charge successful', () => {
+    it('MR02 - Registration of an acquisition successful', () => {
         registerMortgageChargeOrAcquisitionPage.selectTodayAsChargeCreationDate();
+        cy.accessibilityCheck();
+
+        registerMortgageChargeOrAcquisitionPage.selectTodayAsChargeAcquisitionDate();
         cy.accessibilityCheck();
 
         registerMortgageChargeOrAcquisitionPage.enterPersonsEntitled("Test Person");
@@ -77,7 +80,7 @@ describe('Register a charge - MR01', () => {
         cy.accessibilityCheck();        
     })
 
-    it('MR01 - Registration of a charge Error Validation', () => {
+    it('MR02 - Registration of an acquisition Error Validation', () => {
         // Upload a file that generates an error message for this section. 
         // Submit the form to generate the remaining errors for blank fields.
         // Expand all fields to ensure they are visible
