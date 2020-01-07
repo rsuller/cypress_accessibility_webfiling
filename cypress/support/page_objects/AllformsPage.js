@@ -73,6 +73,10 @@ class AllFormsPage {
         cy.contains("Register a charge - MR01").click();
     }
 
+    selectMr02() {
+        cy.contains('Register an acquisition - MR02').click();
+    }
+
 }
 
 export default AllFormsPage

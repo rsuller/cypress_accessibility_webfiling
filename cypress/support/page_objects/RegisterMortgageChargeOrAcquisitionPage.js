@@ -1,7 +1,7 @@
 import BasePage from "./generic/BasePage";
 
 
-class RegisterMortgageChargePage extends BasePage {
+class RegisterMortgageChargeOrAcquisitionPage extends BasePage {
 
     //Expand all fields and check the accessibility before interacting with the page
     initialAccessibilityCheck() {
@@ -14,6 +14,13 @@ class RegisterMortgageChargePage extends BasePage {
         const dayElement = "#day-select-1";
         const monthElement = "#month-select-1";
         const yearElement = "#year-select-1";
+        cy.selectTodaysDate(dayElement, monthElement, yearElement);
+    }
+
+    selectTodayAsChargeAcquisitionDate() {
+        const dayElement = "#day-select-2";
+        const monthElement = "#month-select-2";
+        const yearElement = "#year-select-2";
         cy.selectTodaysDate(dayElement, monthElement, yearElement);
     }
 
@@ -72,10 +79,10 @@ class RegisterMortgageChargePage extends BasePage {
     }
 
     submitChargeRegistration() {
-        cy.contains('Register Charge').click();
+        cy.get('input[class="button regular submit positive"]').click();
         return this;
     }
 
 }
 
-export default RegisterMortgageChargePage
+export default RegisterMortgageChargeOrAcquisitionPage
