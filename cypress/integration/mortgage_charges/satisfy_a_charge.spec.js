@@ -47,7 +47,7 @@ describe('Satisfy a charge - MR04', () => {
         cy.accessibilityCheck();
     })
 
-    it.only('MR04 - Satifaction of a charge Error Validation', () => {
+    it('MR04 - Satifaction of a charge Error Validation', () => {
 
         //Submit form without entering any information to fire error messages
         satisfyMortgageChargePage.clickEnterAddressManually()
