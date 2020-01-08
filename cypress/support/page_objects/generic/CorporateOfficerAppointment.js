@@ -1,7 +1,9 @@
 import BasePage from "./BasePage";
 import AddressPage from "./Address";
 
-class CorporateOfficerAppointment extends BasePage, AddressPage {
+const addressPage = new AddressPage();
+
+class CorporateOfficerAppointment extends BasePage {
 
     enterCompanyName(companyName) {
         cy.get('#corporateName').type(companyName);
@@ -18,7 +20,7 @@ class CorporateOfficerAppointment extends BasePage, AddressPage {
     }
 
     enterCompanyAddress(propertyNumber, postcode) {
-        
+        addressPage.lookUpServiceAddress(propertyNumber, postcode);
         // Accessibility check here
         cy.accessibilityCheck();
         cy.get('#company-address-container-continue').wait(2000).click();
