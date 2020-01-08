@@ -1,7 +1,9 @@
 import BasePage from "./generic/BasePage";
+import AddressPage from "./generic/Address";
 
+const addressPage = new AddressPage();
 
-class SatisfyMortgageChargePage extends BasePage, AddressPage {
+class SatisfyMortgageChargePage extends BasePage {
 
     //Expand all fields and check the accessibility before interacting with the page
     initialAccessibilityCheck() {

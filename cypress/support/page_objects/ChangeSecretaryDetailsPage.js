@@ -1,7 +1,8 @@
 import AddressPage from "./generic/Address";
 
-class ChangeSecretaryDetailsPage extends AddressPage {
+const addressPage = new AddressPage();
 
+class ChangeSecretaryDetailsPage {
 
     changeMiddleName(middleName) {
         cy.get('#name-container-change').click();
@@ -17,7 +18,7 @@ class ChangeSecretaryDetailsPage extends AddressPage {
         cy.get('#correspondence-address-choice-manual-label').click();
 
         // Enter new premise
-        this.lookUpServiceAddress(propertyNumber, postcode);
+        addressPage.lookUpServiceAddress(propertyNumber, postcode);
 
         cy.accessibilityCheck();
     }
