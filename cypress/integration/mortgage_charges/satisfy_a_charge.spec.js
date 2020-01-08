@@ -7,7 +7,7 @@ import SatisfyMortgageChargePage from '../../support/page_objects/SatisfyMortgag
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
-const mortgagePreFilingPage = new MortgagePreFilingPage
+const mortgagePreFilingPage = new MortgagePreFilingPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const satisfyMortgageChargePage = new SatisfyMortgageChargePage();
 const mortgageChargesListPage = new MortgageChargesListPage();
