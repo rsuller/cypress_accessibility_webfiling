@@ -1,7 +1,7 @@
 import BasePage from "./generic/BasePage";
 
 
-class SatisfyMortgageChargePage extends BasePage {
+class SatisfyMortgageChargePage extends BasePage, AddressPage {
 
     //Expand all fields and check the accessibility before interacting with the page
     initialAccessibilityCheck() {
@@ -31,10 +31,7 @@ class SatisfyMortgageChargePage extends BasePage {
     }
 
     enterHomeAddress(propertyNumber, postcode) {
-        cy.get('#residential-address-premise').type(propertyNumber);
-        cy.get('#residential-address-postcode').type(postcode);
-        //Click lookup postcode and wait for the address to be populated
-        cy.get('#residential-address-postcode-Lookup').click().wait(2000);
+        addressPage.lookUpResidentialAddress();
         //Accessibility check here due to clicking the lookup button that auto populates fields
         cy.accessibilityCheck();
         return this;

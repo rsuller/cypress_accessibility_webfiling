@@ -1,4 +1,7 @@
-class ChangeSecretaryDetailsPage {
+import AddressPage from "./generic/Address";
+
+class ChangeSecretaryDetailsPage extends AddressPage {
+
 
     changeMiddleName(middleName) {
         cy.get('#name-container-change').click();
@@ -8,20 +11,15 @@ class ChangeSecretaryDetailsPage {
         cy.get('#name-container-continue').click();
     }
 
-    changeAddressPremise(propertyNumber) {
+    changeAddressPremise(propertyNumber, postcode) {
         cy.get('#service-address-container-change').click().wait(2000);
         cy.accessibilityCheck();
         cy.get('#correspondence-address-choice-manual-label').click();
 
         // Enter new premise
-        cy.get('#service-address-premise').type(propertyNumber);
-        // Use CF14 3UZ postcode - may need to alter this at a later date
-        cy.get('#service-address-postcode').type('CF14 3UZ');
-        cy.get('#service-address-postcode-Lookup').click().wait(2000);
+        this.lookUpServiceAddress(propertyNumber, postcode);
 
         cy.accessibilityCheck();
-        // Update details
-        cy.get('#service-address-container-continue').click();
     }
 
 }

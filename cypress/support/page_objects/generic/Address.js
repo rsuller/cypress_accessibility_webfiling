@@ -26,6 +26,15 @@ class AddressPage {
         
     }
 
+    lookUpResidentialAddress(propertyNumber, postcode) {
+        const propElement = '#residential-address-premise';
+        const postcodeElement = '#residential-address-postcode';
+        const buttonElement = '#residential-address-postcode-Lookup';
+        this.lookUpAddress(propertyNumber, postcode,
+            propElement, postcodeElement, buttonElement);
+    
+    }
+
     lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton, continueButton) {
         cy.get(propElement).type(propertyNumber)
         cy.get(postcodeElement).type(postcode)
