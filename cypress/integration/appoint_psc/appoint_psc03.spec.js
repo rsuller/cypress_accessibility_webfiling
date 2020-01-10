@@ -29,7 +29,7 @@ describe('Appoint a legal person PSC', () => {
          appointPSC03Page.enterCorporateName("AAPV LTD");
 
          cy.accessibilityCheck();
-         addressPage.lookUpServiceAddress('1', 'CF14 3UZ');
+         appointPSC03Page.enterServiceAddress('1', 'CF14 3UZ');
  
          cy.accessibilityCheck();
          appointPSC03Page.enterEntityDetails('LTD', 'US');

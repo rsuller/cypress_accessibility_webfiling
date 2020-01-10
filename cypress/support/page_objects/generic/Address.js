@@ -20,9 +20,8 @@ class AddressPage {
         const propElement = '#service-address-premise';
         const postcodeElement = '#service-address-postcode';
         const buttonElement = '#service-address-postcode-Lookup';
-        const continueElement = '#service-address-container-continue';
         this.lookUpAddress(propertyNumber, postcode,
-            propElement, postcodeElement, buttonElement, continueElement);
+            propElement, postcodeElement, buttonElement);
         
     }
 
@@ -40,7 +39,15 @@ class AddressPage {
         cy.get(postcodeElement).type(postcode)
         // Lookup address
         cy.get(lookupButton).wait(500).click();
-        cy.get(continueButton).wait(2000).click();
+
+    }
+
+    lookUpAddressWithContinue(propertyNumber, postcode, propElement, postcodeElement, lookupButton, continueButton) {
+        cy.get(propElement).type(propertyNumber)
+        cy.get(postcodeElement).type(postcode)
+        // Lookup address
+        cy.get(lookupButton).wait(500).click();
+        cy.get(continueButton).wait(3000).click();
 
     }
 

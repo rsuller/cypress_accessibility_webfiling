@@ -14,7 +14,7 @@ describe('Change of registered office address', () => {
 
         // Alter address - just change premise
         changeRegisteredOffice.lookUpROAddress('100', 'SW1P 1JP');
-        cy.accessibilityCheck();
+        //cy.accessibilityCheck();
 
         // Check address is correct
         changeRegisteredOffice.checkAddressByStreetName('ROCHESTER ROW')

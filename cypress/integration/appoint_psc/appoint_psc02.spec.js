@@ -32,7 +32,7 @@ describe('Appoint a corporate PSC', () => {
         appointPSC02Page.enterCorporateName(rle_psc_name);
 
         cy.accessibilityCheck();
-        addressPage.lookUpServiceAddress('10', 'CF14 3UZ');
+        appointPSC02Page.enterServiceAddress('10', 'CF14 3UZ');
 
         cy.accessibilityCheck();
         appointPSC02Page.enterEntityDetails('LLP', 'EU');

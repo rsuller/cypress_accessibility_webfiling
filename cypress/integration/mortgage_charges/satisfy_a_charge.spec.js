@@ -26,22 +26,30 @@ describe('Satisfy a charge - MR04', () => {
 
         //Check the accessibility of the Charges list page then click Satisfy on the first charge
         cy.accessibilityCheck();
-        mortgageChargesListPage.selectSatisfyFirstCharge();
+        mortgageChargesListPage.selectFirstCharge();
 
-        //Expand all fields and perform initial accessibility check
-        satisfyMortgageChargePage.initialAccessibilityCheck();
+        //Perform initial accessibility check
+        cy.accessibilityCheck();
 
     })
 
     it('MR04 - Satisfaction of a charge successful', () => {
         
         //Populate the Satisfy a charge form
-        //No accessibility checks as nothing changes on screen.
-        satisfyMortgageChargePage.selectSatisfiedInFull()
-        .enterInterestInCharge("Testing")
-        .enterName("A Testperson")
-        .enterHomeAddress("1", "CF14 3UZ")
-        .submitChargeSatisfaction();
+        //Check accessibility as screen changes
+        satisfyMortgageChargePage.selectSatisfiedInFull();
+        cy.accessibilityCheck();
+
+        satisfyMortgageChargePage.enterInterestInCharge("Testing");
+        cy.accessibilityCheck();
+
+        satisfyMortgageChargePage.enterName("A Testperson");
+        cy.accessibilityCheck();
+
+        satisfyMortgageChargePage.enterHomeAddress("1", "CF14 3UZ");
+        cy.accessibilityCheck();
+
+        satisfyMortgageChargePage.submitChargeSatisfaction();
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission");
         cy.accessibilityCheck();
@@ -50,6 +58,8 @@ describe('Satisfy a charge - MR04', () => {
     it('MR04 - Satifaction of a charge Error Validation', () => {
 
         //Submit form without entering any information to fire error messages
+        satisfyMortgageChargePage.expandAll();
+        cy.accessibilityCheck();
         satisfyMortgageChargePage.clickEnterAddressManually()
         .enterInvalidCharactersToFireErrors("`")
         .submitChargeSatisfaction();
