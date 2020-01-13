@@ -5,12 +5,6 @@ const addressPage = new AddressPage();
 
 class CeaseOrReleasePropertyFromCharge extends BasePage {
 
-    //Check the accessibility before interacting with the page
-    initialAccessibilityCheck() {
-        cy.accessibilityCheck();
-        return this;
-    }
-
     selectAllPropertyAsExtentOfRelease() {
         cy.get('#charge-fullpart-choice-full').click();
         cy.get('#charge-fullpart-continue').click();
@@ -51,11 +45,6 @@ class CeaseOrReleasePropertyFromCharge extends BasePage {
         cy.get('#residential-address-postcode').type(invalidChar);
         cy.get('#residential-address-thoroughfare').type(invalidChar);
         cy.get('#residential-address-county').type(invalidChar);
-        return this;
-    }
-
-    submitCeaseOrReleaseProperty() {
-        cy.get('input[class="button regular submit positive"]').click();
         return this;
     }
 

@@ -31,7 +31,7 @@ describe('Cease or release property from a charge - MR05', () => {
         mortgageChargesListPage.selectFirstCharge();
 
         //Perform initial accessibility check
-        ceaseOrReleasePropertyFromCharge.initialAccessibilityCheck();
+        cy.accessibilityCheck();
 
     })
 
@@ -43,7 +43,7 @@ describe('Cease or release property from a charge - MR05', () => {
         .enterInterestInCharge("Testing")
         .enterName("A Testperson")
         .enterHomeAddress("1", "CF46 6NW")
-        .submitCeaseOrReleaseProperty();
+        .submitForm();
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission");
         cy.accessibilityCheck();
@@ -56,7 +56,7 @@ describe('Cease or release property from a charge - MR05', () => {
         cy.accessibilityCheck();
         ceaseOrReleasePropertyFromCharge.clickEnterAddressManually()
         .enterInvalidCharactersToFireErrors("`")
-        .submitCeaseOrReleaseProperty();
+        .submitForm();
         //check accessibility of page with section error messages displayed
         //cy.accessibilityCheck();
 

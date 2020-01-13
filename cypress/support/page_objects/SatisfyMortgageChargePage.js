@@ -5,12 +5,6 @@ const addressPage = new AddressPage();
 
 class SatisfyMortgageChargePage extends BasePage {
 
-    //Expand all fields and check the accessibility before interacting with the page
-    initialAccessibilityCheck() {
-        cy.accessibilityCheck();
-        return this;
-    }
-
     selectSatisfiedInFull() {
         cy.get('#charge-satisfaction-choice-full').click();
         cy.get('#charge-satisfaction-continue').click();
@@ -47,11 +41,6 @@ class SatisfyMortgageChargePage extends BasePage {
         cy.get('#residential-address-postcode').type(invalidChar);
         cy.get('#residential-address-thoroughfare').type(invalidChar);
         cy.get('#residential-address-county').type(invalidChar);
-        return this;
-    }
-
-    submitChargeSatisfaction() {
-        cy.get('input[class="button regular submit positive"]').click();
         return this;
     }
 

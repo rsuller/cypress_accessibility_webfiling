@@ -49,7 +49,7 @@ describe('Satisfy a charge - MR04', () => {
         satisfyMortgageChargePage.enterHomeAddress("1", "CF14 3UZ");
         cy.accessibilityCheck();
 
-        satisfyMortgageChargePage.submitChargeSatisfaction();
+        satisfyMortgageChargePage.submitForm();
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission");
         cy.accessibilityCheck();
@@ -62,7 +62,7 @@ describe('Satisfy a charge - MR04', () => {
         cy.accessibilityCheck();
         satisfyMortgageChargePage.clickEnterAddressManually()
         .enterInvalidCharactersToFireErrors("`")
-        .submitChargeSatisfaction();
+        .submitForm();
         //check accessibility of page with section error messages displayed
         cy.accessibilityCheck();
 
