@@ -1,27 +1,31 @@
 import BasePage from "./generic/BasePage";
+import AddressPage from "./generic/Address";
 
+const addressPage = new AddressPage();
 
 class SatisfyMortgageChargePage extends BasePage {
 
     //Expand all fields and check the accessibility before interacting with the page
     initialAccessibilityCheck() {
-        this.expandAll();
         cy.accessibilityCheck();
         return this;
     }
 
     selectSatisfiedInFull() {
         cy.get('#charge-satisfaction-choice-full').click();
+        cy.get('#charge-satisfaction-continue').click();
         return this;
     }
 
     enterInterestInCharge(interest) {
         cy.get('#InterestInCharge').type(interest);
+        cy.get('#charge-interest-continue').click();
         return this;
     }
 
     enterName(name) {
         cy.get('#Name').type(name);
+        cy.get('#charge-your-name-continue').type(name);
         return this;
     }
 
@@ -31,10 +35,8 @@ class SatisfyMortgageChargePage extends BasePage {
     }
 
     enterHomeAddress(propertyNumber, postcode) {
-        cy.get('#residential-address-premise').type(propertyNumber);
-        cy.get('#residential-address-postcode').type(postcode);
-        //Click lookup postcode and wait for the address to be populated
-        cy.get('#residential-address-postcode-Lookup').click().wait(2000);
+        addressPage.lookUpResidentialAddress(propertyNumber, postcode);
+        cy.get('#charge-your-address-continue').wait(3000).click();
         //Accessibility check here due to clicking the lookup button that auto populates fields
         cy.accessibilityCheck();
         return this;
