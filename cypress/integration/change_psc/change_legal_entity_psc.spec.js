@@ -1,7 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
-import AddressPage from '../../support/page_objects/generic/Address';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
@@ -10,7 +9,6 @@ import { rle_psc_name } from '../../fixtures/psc.json';
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC02Page = new PscAppointment();
-const addressPage = new AddressPage();
 const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalEntityPsc = new ChangeLegalEntityPsc();

@@ -27,7 +27,7 @@ class AddressPage {
     
     }
 
-    lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton, continueButton) {
+    lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton) {
         cy.get(propElement).type(propertyNumber)
         cy.get(postcodeElement).type(postcode)
         // Lookup address

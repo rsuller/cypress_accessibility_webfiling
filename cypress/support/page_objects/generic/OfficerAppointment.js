@@ -32,7 +32,7 @@ class OfficerAppointment extends BasePage {
         cy.get('#residential-address-container-continue').wait(2000).click();
     }
 
-    enterServiceAddress(propertyNumber, postcode) {
+    lookupServiceAddress(propertyNumber, postcode) {
         addressPage.lookUpServiceAddress(propertyNumber, postcode);
         cy.get('#service-address-container-continue').wait(2000).click();
     }

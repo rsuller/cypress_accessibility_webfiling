@@ -12,7 +12,7 @@ class ChangeSecretaryDetailsPage {
         cy.get('#name-container-continue').click();
     }
 
-    changeAddressPremise(propertyNumber, postcode) {
+    changeAddress(propertyNumber, postcode) {
         cy.get('#service-address-container-change').click().wait(2000);
         cy.accessibilityCheck();
         cy.get('#correspondence-address-choice-manual-label').click();
