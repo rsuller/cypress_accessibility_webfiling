@@ -35,4 +35,4 @@ beforeEach(() => {
     const companySignIn = new CompanySignInPage();
     cy.accessibilityCheck();
     companySignIn.enterCompanyDetails(company_number, auth_code);
-}) 
+})
