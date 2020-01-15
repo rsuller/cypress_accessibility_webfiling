@@ -12,9 +12,9 @@
           "wcag21aa"
         ]
       }
-    }
+    },
+    "RETRIES": 1
   },
   "chromeWebSecurity": false,
   "video": false
- 
 }
